@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="..//style/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+  body{
+    font-family: "Arial Black", sans-serif;
+  }
+   .tab-wrap {
+	font-size: 0;
+	width: 100%;
+	margin: 50px auto 0;
+}
+.tab-btn {
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+	padding: 25px 0;
+	font-size: 18px;
+	cursor: pointer;
+}
+.tab-btn:hover {
+	border-bottom: 2px solid rgba(0, 0, 0, .5);
+	color: rgba(0, 0, 0, .5);
+}
+.tab-btn.active {
+	border-bottom: 2px solid rgba(0, 0, 0, 1);
+	color: rgba(0, 0, 0, 1);
+}
+.tab-content-wrap {
+	width: 100%;
+	padding: 25px 0;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.tab-content p {
+	text-align: left;
+	width: 100%;
+	font-size: 16px;
+}
+
+.accordion {
+  /* background-color: #eee; */
+  /* color: #444; */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  /* background-color: #ccc; */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+
+a{
+  background-color: #fff;
+  color: #000;
+  opacity: 0.5;
+}
+
+a:hover{
+  background-color: #fff;
+  color: #C63434;
+}
+
+
+
+
+
+
+</style>
+
+  <title>ЮСТ.РФ</title>
+</head>
+<body >
+  
+   <nav>
+
+      <a href="../" style="opacity: 1;">
+        <img src="..//img/logo.png" alt="" >
+      </a>
+      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
+      <label for="burger-toggle" style="z-index: 100000;">
+        <span></span>
+      </label>
+      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 860px; margin-top: 260px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);">
+        <li>
+          <a href="../" class="header__link" style="font-family: 'Arial Black';">Главная</a>
+        </li>
+        <li>
+          <a href="..//category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
+        </li>
+        <li>
+          <a href="..//delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
+        </li>
+        <li>
+          <a href="..//uslug.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
+        </li>
+        <li>
+          <a href="..//credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
+        </li>
+  
+
+        <li>
+          <a href="..//garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
+    
+        </li>
+        <li>
+          <a href="..//money.html" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
+    
+        </li>
+		
+		
+		 <li>
+          <a href="..//price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
+    
+        </li>
+        
+
+        
+
+       
+      </ul>
+    </nav>
+
+
+
+
+    </div>
+    <div class="header-line" style="opacity: 0.5;">
+
+    </div>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-7">
+    <div class="price-img" >
+      <img src="..//12-1.webp" alt="treks" style="margin-top: 180px; width: 700px;">
+    </div>
+  
+  </div>
+  <div class="col-md-5" style="margin-top: 60px;">
+   
+    <div class="price-offer">
+      <h1 style="text-transform: uppercase; font-family: 'Arial Black';font-weight: 400; font-size: 70px;">
+Трехфазный гибридный инвертор 14-20 кВт 2 MPPT и поддержка низковольтной батареи
+
+
+</h1>
+ <div class="price-desc" style="text-transform: uppercase; font-family: 'Arial Black'; font-weight: 900;font-size: 15px;color: #C63434; opacity: 0.4;">
+      Инвенторы</br>
+      SUN-14/15/16/18/20K-SG05LP3-EU-SM2
+    </div>
+    </div>
+    <div class="price-money">
+      <p style="font-weight: 400; font-size: 42px;opacity: 0.52; font-family: 'Arial Black';">0 Р
+
+</p>
+    </div>
+    <div class="price-text" style="margin-bottom: 100px;">
+      <p style="font-weight: 400; font-size: 16px; font-family: 'Arial Black'; opacity: 0.6;"> 
+
+
+                               Благодаря интеллектуальной платформе мониторинга инверторные продукты Deye полной серии поддерживают немедленное дистанционное отключение при возникновении аварии. </br>
+                               Удаленная настройка параметров и обновление прошивки облегчают эксплуатацию и техническое обслуживание фотоэлектрических установок.   </br>
+                                    
+                             
+
+                                  
+                               
+                                                                                                                                                                                                                         
+                                    
+                                                                                              
+      </p>
+    </div>
+    <div class="price-btn" style="margin-top: 45px;margin-bottom: 50px;">
+      <a href="form.html" target="_blank" style="padding: 25px 87px; background-color: #C63434;border-radius: 500px;color: #fff; text-decoration: none;font-weight: 900;font-family: 'Arial Black';text-transform: uppercase;opacity: 1;">Купить</a>
+    </div>
+    <div class="price-file" style="margin-top: 85px;">
+
+
+
+       <!-- <p><a href="#">Рекламная брошюра трекера UST-AADAT</a></p>
+      
+       <p><a href="#">Схема трекера UST-AADAT</a></p>
+        <p><a href="#">Схема SPA-алгоритма солнечной позиции</a></p>
+         <p><a href="#">Статья "Солнечные трекеры"</a></p>
+          <p><a href="#">Статья "Классификация трекеров"</a></p>
+           <p><a href="#">Презентация "Солнечные трекеры United Solar Technologies"</a></p> -->
+    </div>
+  </div>
+ </div>
+     <div class="header-line" style="opacity: 0.5; margin-bottom: 70px;"></div>
+ <!-- <h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900;">ОСНОВНАЯ ИНФОРМАЦИЯ</h4>
+ <p style="text-align: center;  opacity: 0.4; margin-bottom: 100px;">Трекер UST-AADAT выполнен в виде V-образной несущей конструкции, расположенной на опорноповоротном устройстве. </p>
+
+<div class="row">
+  <div class="col-2">
+    <div class="lef-select">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">30кг</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400;padding-bottom: 15px; opacity: 0.86;">Вес</h3>
+
+    </div>
+    
+        <div class="lef-select" style="margin-top: 250px;">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">3x220В</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400; opacity: 0.86;"> выходное напряжение: 3×220 В (3 фазы по 220 В);</h3>
+
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="img-prrc" style="display: flex; justify-content: center; align-items: center; ">
+      <img src="img/_abm_2000_12_001.png" style="margin-top: 150px; width: 700px;">
+    </div>
+    
+  </div>
+    <div class="col-2">
+    <div class="lef-select">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">340 Вт</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400;padding-bottom: 15px; opacity: 0.86;">Максимальная выработка одного полного комплекта энергосистемы</h3>
+
+    </div>
+        <div class="lef-select" style="margin-top: 250px;">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">960 кВт</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400; opacity: 0.86;">С одного блока управления выработка электростанции, состоящей из 64 трекеров</h3>
+
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900; margin-bottom: 100px;">ОПИСАНИЕ</h4> -->
+<!-- <div class="row">
+  <div class="col-2">
+    <h5 style="margin-bottom: 75px;">РАБОЧАЯ ПОВЕРХНОСТЬ</h5>
+    <h5 style="margin-bottom: 75px;">МАКСИМАЛЬНАЯ РАБОЧАЯ ПОВЕРХНОСТЬ</h5>
+    <h5 style="margin-bottom: 75px;">МОЩНОСТЬ</h5>
+  </div>
+  <div class="col-5">
+     <p style="opacity: 0.4; padding-bottom: 80px;">	96 кв.м.</p>
+      <p style="opacity: 0.4; padding-bottom: 120px;">	108 кв.м.</p>
+     <p style="opacity: 0.4;">	19.2 кВт</p>
+  </div>
+</div> -->
+
+
+
+<section class="info" style="margin-top: 100px;">
+	<div class="tab-wrap" style="margin-top: 160px;">
+		<div class="tab-btn-wrap">
+			<span class="tab-btn" data="one">ОПИСАНИЕ</span>
+			<span class="tab-btn" data="two">ХАРАКТЕРИСТИКИ</span>
+		</div>
+		<div class="tab-content-wrap">
+			<div class="tab-content" id="one"><p>
+
+  
+- 100% несимметричный выход</br>
+- Пара переменного тока для модернизации существующей солнечной системы</br>
+- Макс. 10 шт. параллельно для работы в сети и вне сети</br>
+- эксплуатация; Поддержка нескольких батарей параллельно</br>
+- Макс. ток заряда/разряда 350А</br>
+- Поддержка хранения энергии от дизельного генератора</br>
+- Низковольтная батарея 48 В, конструкция с трансформаторной изоляцией</br>
+- 6 периодов времени для зарядки/разрядки аккумулятора</br>
+
+
+    
+
+      
+
+        
+
+    
+      
+       <div class="tab-content" id="two">
+				<div class="table-responsive" id="table-1">
+<table style="border-collapse: collapse; table-layout: fixed; width: 0;" selecttype="cells">
+<tbody>
+<tr height="65" style="mso-height-source: userset; height: 65px;">
+<td style="background-color: #a6a6a6; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '@'; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Модель</font></font></td>
+<td style="background-color: #a6a6a6; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><span style="font-size: 11pt; font-weight: bold; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SUN-14K-SG05LP3 </font></font></span><font style="vertical-align: inherit;"><span style="font-size: 11pt; font-weight: bold; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;">-EU-SM2</font></span></font><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><br style="mso-data-placement: same-cell;"></span><span style="font-size: 11pt; font-weight: bold; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"></font></span></td>
+<td style="background-color: #a6a6a6; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SUN-15K-SG05LP3 </font></font></span><font style="vertical-align: inherit;"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;">-EU-SM2</font></span></font><span style="font-size: 11pt; color: #000000;"><br style="mso-data-placement: same-cell;"></span><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"></font></span></td>
+<td style="background-color: #a6a6a6; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SUN-16K-SG05LP3 </font></font></span><font style="vertical-align: inherit;"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;">-EU-SM2</font></span></font><span style="font-size: 11pt; color: #000000;"><br style="mso-data-placement: same-cell;"></span><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"></font></span></td>
+<td style="background-color: #a6a6a6; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SUN-18K-SG05LP3 </font></font></span><font style="vertical-align: inherit;"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;">-EU-SM2</font></span></font><span style="font-size: 11pt; color: #000000;"><br style="mso-data-placement: same-cell;"></span><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"></font></span></td>
+<td style="background-color: #a6a6a6; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SUN-20K-SG05LP3 </font></font></span><font style="vertical-align: inherit;"><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;">-EU-SM2</font></span></font><span style="font-size: 11pt; color: #000000;"><br style="mso-data-placement: same-cell;"></span><span style="font-size: 11pt; font-weight: bold; color: #000000;"><font style="vertical-align: inherit;"></font></span></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td colspan="6" style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 912px; border: .5pt solid #000000;" width="912"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Входные данные батареи</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Тип батареи</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: no-wrap; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Свинцово-кислотные или литий-ионные</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Диапазон напряжения аккумулятора (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">40-60</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. ток зарядки (А)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. ток разряда (А)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Стратегия зарядки для литий-ионного аккумулятора</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Самоадаптация к BMS</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Количество входов батареи</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td colspan="6" style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 912px; border: .5pt solid #000000;" width="912"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Входные данные для фотоэлектрической цепи</font></font></td>
+</tr>
+<tr>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: 0.5pt solid #000000;">
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #666767;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. мощность доступа к фотоэлектрическим модулям (Вт)</font></font></span></div>
+</td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: 0.5pt solid #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">28000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: 0.5pt solid #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">30000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: 0.5pt solid #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">32000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: 0.5pt solid #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">36000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: 0.5pt solid #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">40000</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. входная мощность постоянного тока (Вт)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">22400</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25600</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">28800</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">32000</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. входное напряжение постоянного тока (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">800</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Пусковое напряжение (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Диапазон напряжения MPPT (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160-650</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Номинальное входное напряжение постоянного тока (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. рабочий входной ток фотоэлектрических модулей (А)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">36+36</font></font></td>
+</tr>
+<tr height="31" style="mso-height-source: userset; height: 31px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. входной ток короткого замыкания (А)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">54+54</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Количество трекеров MPPT/ </font></font><br style="mso-data-placement: same-cell;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Количество строк на трекер MPPT</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2/2+2</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Входные/выходные данные переменного тока</font></font></td>
+<td colspan="5" style="background-color: #c8c8c8; font-size: 11pt; color: #000000; vertical-align: middle; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"></td>
+</tr>
+<tr height="33" style="mso-height-source: userset; height: 33px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Номинальная активная входная/выходная мощность переменного тока (Вт)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18000</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">20000</font></font></td>
+</tr>
+<tr height="31" style="mso-height-source: userset; height: 31px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. Входная/выходная мощность переменного тока (ВА)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15400</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16500</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17600</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">19800</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">22000</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Номинальный входной/выходной переменный ток (А)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">21.3/20.3</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">22.8/21.8</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24.3/23.2</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">27.3/26.1</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">30.4/29</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. входной/выходной переменный ток (А)</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">23.4/22.4</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '\# ??/??'; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25/24</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">26.7/25.6</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">30/28.7</font></font></td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 130px; border: .5pt solid #000000;" width="130"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">33,4/31,9</font></font></td>
+</tr>
+<tr height="29" style="mso-height-source: userset; height: 29px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. непрерывный проходной переменный ток (сеть-нагрузка) (А)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">70</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Пиковая мощность (вне сети) (Вт)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2-кратная номинальная мощность, 10 с</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Диапазон регулировки коэффициента мощности</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0,8 опережающий к 0,8 отстающий</font></font></td>
+</tr>
+<tr height="34" style="mso-height-source: userset; height: 34px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Номинальное входное/выходное напряжение/диапазон (В)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220/380В, 230/400В 0,85Un-1,1Un</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Номинальная частота/диапазон входной/выходной сети (Гц)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">50/45-55, 60/55-65</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Форма подключения к сети</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3Л+Н+ПЭ</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Суммарный коэффициент гармонических искажений тока THDi</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;3% (от номинальной мощности)</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Компонент постоянного тока сети</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;0,5% В</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Эффективность</font></font></td>
+<td colspan="5" style="background-color: #c8c8c8; font-size: 11pt; color: #000000; vertical-align: middle; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Макс. эффективность</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0\.0%'; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">97,6%</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Евроэффективность</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0\.0%'; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">97.0%</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Эффективность MPPT</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;99%</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Защита оборудования</font></font></td>
+<td colspan="5" style="background-color: #c8c8c8; font-size: 11pt; color: #000000; vertical-align: middle; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"></td>
+</tr>
+<tr height="136" style="mso-height-source: userset; height: 136px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Интегрированный</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650">
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Защита от обратной полярности постоянного тока, защита от перегрузки по току на выходе переменного тока, тепловая защита,</font></font></span></div>
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Защита от перенапряжения на выходе переменного тока, защита от короткого замыкания на выходе переменного тока, мониторинг компонентов постоянного тока,</font></font></span></div>
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Защита от перенапряжения и падения нагрузки, контроль тока замыкания на землю, прерыватель дугового замыкания (опционально),</font></font></span></div>
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Мониторинг сети электропитания, мониторинг защиты острова, обнаружение замыкания на землю, переключатель входа постоянного тока,</font></font></span></div>
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Контроль сопротивления изоляции выводов постоянного тока, обнаружение остаточного тока (УЗО), уровень защиты от перенапряжения</font></font></span></div>
+</td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Уровень защиты от перенапряжения</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ТИП II(DC),ТИП II(AC)</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Интерфейс</font></font></td>
+<td colspan="5" style="background-color: #c8c8c8; font-size: 11pt; color: #000000; vertical-align: middle; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Интерфейс связи</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RS485/RS232/CAN</font></font></td>
+</tr>
+<tr>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: 0.5pt solid #000000;">
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Режим монитора</font></font></span></div>
+</td>
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; border: 0.5pt solid #000000;" colspan="5">
+<div><span style="font-size: 14px; font-family: Lato-Regular; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPRS/WIFI/Bluetooth/4G/LAN (опционально)</font></font></span></div>
+</td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="background-color: #c8c8c8; font-size: 11pt; font-weight: bold; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Общие данные</font></font></td>
+<td colspan="5" style="background-color: #c8c8c8; font-size: 11pt; color: #000000; vertical-align: middle; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"></td>
+</tr>
+<tr height="39" style="mso-height-source: userset; height: 39px;">
+<td style="vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Диапазон рабочих температур ( </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">℃ </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">)</font></font></span></td>
+<td colspan="5" style="vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '@'; width: 650px; border: .5pt solid #000000;" width="650"><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-40 до +60 </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">℃ </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">, &gt;45 </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">℃&nbsp; </font></font></span><span style="font-size: 11pt; font-family: Helvetica Neue, Helvetica, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif; color: #000000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">снижение номинальных характеристик</font></font></span></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Допустимая влажность окружающей среды</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0-100%</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Допустимая высота</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3000м</font></font></td>
+</tr>
+<tr height="29" style="mso-height-source: userset; height: 29px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Шум</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">≤60</font></font></td>
+</tr>
+<tr height="31" style="mso-height-source: userset; height: 31px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Степень защиты от проникновения (IP)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IP65</font></font></td>
+</tr>
+<tr height="32" style="mso-height-source: userset; height: 32px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Топология инвертора</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Неизолированный</font></font></td>
+</tr>
+<tr height="40" style="mso-height-source: userset; height: 40px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Категория перенапряжения</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVC II(DC), OVC III(AC)</font></font></td>
+</tr>
+<tr height="36" style="mso-height-source: userset; height: 36px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Размеры шкафа (ШxВxГ, мм)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">456×750×268,5 (без учета соединителей и кронштейнов)</font></font></td>
+</tr>
+<tr height="35" style="mso-height-source: userset; height: 35px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Вес (кг)</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; mso-number-format: '0'; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">51.9</font></font></td>
+</tr>
+<tr height="36" style="mso-height-source: userset; height: 36px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Тип охлаждения</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Интеллектуальное воздушное охлаждение</font></font></td>
+</tr>
+<tr height="24" style="mso-height-source: auto; height: 24px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Гарантия</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5 лет/10 лет </font></font><br style="mso-data-placement: same-cell;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">гарантийный срок зависит от места окончательной установки инвертора, более подробную информацию см. в гарантийной политике</font></font></td>
+</tr>
+<tr height="24" style="mso-height-source: auto; height: 24px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Регулирование сети</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IEC 61727, IEC 62116, CEI 0-21, EN 50549, NRS 097, RD 140, UNE 217002, </font></font><br style="mso-data-placement: same-cell;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OVE-Richtlinie R25, G99, VDE-AR-N 4105</font></font></td>
+</tr>
+<tr height="31" style="mso-height-source: userset; height: 31px;">
+<td style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: left; white-space: normal; width: 262px; border: .5pt solid #000000;" width="262"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Стандарт безопасности/ЭМС</font></font></td>
+<td colspan="5" style="font-size: 11pt; color: #000000; vertical-align: middle; text-align: center; white-space: normal; width: 650px; border: .5pt solid #000000;" width="650"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">МЭК/EN 61000-6-1/2/3/4, МЭК/EN 62109-1, МЭК/EN 62109-2</font></font></td>
+</tr>
+</tbody>
+</table>
+                    </div>
+			</div> 
+		</div>
+	</div>
+</section>
+
+
+
+<section class="gallerey">
+  <div class="container-fluid">
+    <h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900; margin-top: 70px;">ГАЛЛЕРЕЯ</h4>
+    <div class="row" style="margin: 0 auto;">
+      <div class="col-md-6">
+        <img src="..//3_1.webp" alt="" style="width: 400px;">
+        <img src="..//3_2.webp" alt="" style="width: 400px;">
+      </div>
+   
+            <div class="col-md-6">
+        <img src="..//3_3.webp" alt="" style="width: 400px;">
+        <img src="..//3_4.webp" alt="" style="width: 400px;">
+      </div>
+     
+       
+
+        
+
+
+       
+
+        
+
+
+       
+    </div>
+   
+  </div>
+</section>   
+
+
+
+
+
+   </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+<script>
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+
+
+
+
+
+  $('.tab-content').hide();
+$('.tab-content').first().show();
+$('.tab-btn').first().addClass('active');
+$('.tab-btn').click(function(){
+	link = $(this).attr('data');
+	$('#' + link).fadeIn(700);
+	$('#' + link).siblings('div').hide();
+	$(this).addClass('active');
+	$(this).siblings('.tab').removeClass('active');
+});
+
+   $(document).ready(function() {
+  $(".container").click(function() {
+    $(".stick").toggleClass(function () {
+      return $(this).is('.open, .close') ? 'open close' : 'open';
+    });
+  });
+});
+
+</script>
+</html>

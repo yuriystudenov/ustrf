@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="..//style/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+
+<style>
+  body{
+    font-family: "Arial Black", sans-serif;
+  }
+   .tab-wrap {
+	font-size: 0;
+	width: 100%;
+	margin: 50px auto 0;
+}
+.tab-btn {
+	width: 50%;
+	display: inline-block;
+	text-align: center;
+	padding: 25px 0;
+	font-size: 18px;
+	cursor: pointer;
+}
+.tab-btn:hover {
+	border-bottom: 2px solid rgba(0, 0, 0, .5);
+	color: rgba(0, 0, 0, .5);
+}
+.tab-btn.active {
+	border-bottom: 2px solid rgba(0, 0, 0, 1);
+	color: rgba(0, 0, 0, 1);
+}
+.tab-content-wrap {
+	width: 100%;
+	padding: 25px 0;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.tab-content p {
+	text-align: left;
+	width: 100%;
+	font-size: 16px;
+}
+
+.accordion {
+  /* background-color: #eee; */
+  /* color: #444; */
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  /* background-color: #ccc; */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+
+a{
+  background-color: #fff;
+  color: #000;
+  opacity: 0.5;
+}
+
+a:hover{
+  background-color: #fff;
+  color: #C63434;
+}
+
+
+
+
+
+
+</style>
+
+  <title>ЮСТ.РФ</title>
+</head>
+<body >
+  
+   <nav>
+
+      <a href="../" style="opacity: 1;">
+        <img src="..//img/logo.png" alt="" >
+      </a>
+      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
+      <label for="burger-toggle" style="z-index: 100000;">
+        <span></span>
+      </label>
+      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 860px; margin-top: 230px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);">
+        <li>
+          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
+        </li>
+        <li>
+          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
+        </li>
+        <li>
+          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
+        </li>
+        <li>
+          <a href="uslug.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
+        </li>
+        <li>
+          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
+        </li>
+  
+
+        <li>
+          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
+    
+        </li>
+        <li>
+          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
+    
+        </li>
+        
+ <li>
+          <a href="..//price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
+    
+        </li>
+        
+
+       
+      </ul>
+    </nav>
+
+
+
+
+    </div>
+    <div class="header-line" style="opacity: 0.5;">
+
+    </div>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-7">
+    <div class="price-img" >
+      <img src="..//img/ss (2018-06-01 at 10.26.35).png" alt="treks" style="width: 860px; height: 763px;">
+    </div>
+  
+  </div>
+  <div class="col-md-5" style="margin-top: 60px;">
+   
+    <div class="price-offer">
+      <h1 style="text-transform: uppercase; font-family: 'Arial Black';font-weight: 400; font-size: 70px;">
+Гибридные сетевые инверторы Fronius Symo Hybrid
+</h1>
+ <div class="price-desc" style="text-transform: uppercase; font-family: 'Arial Black'; font-weight: 900;font-size: 15px;color: #C63434; opacity: 0.4;">
+      Солнечная батарея
+    </div>
+    </div>
+    <div class="price-money">
+      <p style="font-weight: 400; font-size: 42px;opacity: 0.52; font-family: 'Arial Black';">209 300 Р
+
+</p>
+    </div>
+    <div class="price-text" style="margin-bottom: 100px;">
+      <p style="font-weight: 400; font-size: 16px; font-family: 'Arial Black'; opacity: 0.6;"> </p>
+    </div>
+    <div class="price-btn" style="margin-top: 45px;margin-bottom: 50px;">
+      <a href="..//form.html" target="_blank" style="padding: 25px 87px; background-color: #C63434;border-radius: 500px;color: #fff; text-decoration: none;font-weight: 900;font-family: 'Arial Black';text-transform: uppercase;opacity: 1;">Купить</a>
+    </div>
+    <div class="price-file" style="margin-top: 85px;">
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="opacity: 0.6;">
+       Инструкция по установке <span><img src="..//img/icons8-pdf-48.png" alt="pdfs" style="width: 25px; height: 25px;"></span>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+      <div class="accordion-body"><a href="Инструкция_по_установке_Symo_Hybrid.pdf">Инструкция по установке</a></div>
+    </div>
+  </div>
+ 
+  
+</div>
+
+      <!-- <p><a href="#">Рекламная брошюра трекера UST-AADAT</a></p>
+      
+       <p><a href="#">Схема трекера UST-AADAT</a></p>
+        <p><a href="#">Схема SPA-алгоритма солнечной позиции</a></p>
+         <p><a href="#">Статья "Солнечные трекеры"</a></p>
+          <p><a href="#">Статья "Классификация трекеров"</a></p>
+           <p><a href="#">Презентация "Солнечные трекеры United Solar Technologies"</a></p> -->
+    </div>
+  </div>
+ </div>
+ <h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900;">ОСНОВНАЯ ИНФОРМАЦИЯ</h4>
+ <p style="text-align: center;  opacity: 0.4; margin-bottom: 100px;">Трекер UST-AADAT выполнен в виде V-образной несущей конструкции, расположенной на опорноповоротном устройстве. </p>
+
+<div class="row">
+  <div class="col-2">
+    <div class="lef-select">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">24,480 кВт</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400;padding-bottom: 15px; opacity: 0.86;">Максимальная мощность</h3>
+
+    </div>
+    
+        <div class="lef-select" style="margin-top: 250px;">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">3x220В</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400; opacity: 0.86;"> выходное напряжение: 3×220 В (3 фазы по 220 В);</h3>
+
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="img-prrc" style="display: flex; justify-content: center; align-items: center; ">
+      <img src="..//img/ss (2018-06-01 at 10.26.35).png" alt="" style="height: 660px;">
+    </div>
+    
+  </div>
+    <div class="col-2">
+    <div class="lef-select">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">340 Вт</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400;padding-bottom: 15px; opacity: 0.86;">Максимальная выработка одного полного комплекта энергосистемы</h3>
+
+    </div>
+        <div class="lef-select" style="margin-top: 250px;">
+      <h3 style="font-family: 'Arial Black'; font-size: 60px; font-weight: 900; color: #C63434;">960 кВт</h3>
+    <h3 style="font-family: 'Arial Black'; font-size: 18px; font-weight: 400; opacity: 0.86;">С одного блока управления выработка электростанции, состоящей из 64 трекеров</h3>
+
+    </div>
+  </div>
+</div>
+
+
+<h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900; margin-bottom: 100px;">ОПИСАНИЕ</h4>
+<div class="row">
+  <div class="col-2">
+    <h5 style="margin-bottom: 75px;">ОСИ ВРАЩЕНИЯ</h5>
+    <h5 style="margin-bottom: 75px;">РАБОЧАЯ ПОВЕРХНОСТЬ</h5>
+    <h5 style="margin-bottom: 75px;">МАКСИМАЛЬНАЯ РАБОЧАЯ ПОВЕРХНОСТЬ</h5>
+    <h5 style="margin-bottom: 75px;">МОЩНОСТЬ</h5>
+  </div>
+  <div class="col-5">
+    <p style="opacity: 0.4; padding-bottom: 50px;">2 (горизонтальная и вертикальная)</p>
+     <p style="opacity: 0.4; padding-bottom: 80px;">	96 кв.м.</p>
+      <p style="opacity: 0.4; padding-bottom: 120px;">	108 кв.м.</p>
+     <p style="opacity: 0.4;">	19.2 кВт</p>
+  </div>
+</div>
+
+
+
+<section class="info" style="margin-top: 100px;">
+	<div class="tab-wrap" style="margin-top: 160px;">
+		<div class="tab-btn-wrap">
+			<span class="tab-btn" data="one">ОПИСАНИЕ</span>
+			<span class="tab-btn" data="two">ХАРАКТЕРИСТИКИ</span>
+		</div>
+		<div class="tab-content-wrap">
+			<div class="tab-content" id="one"><p>
+      </br>Инвертор для дома Symo Hybrid 
+      </br>Гибридный инвертор Fronius Symo Hybrid — это основная часть пакета сохранения солнечной энергии Fronius Energy Package, для снабжения солнечной энергией вашего дома все 24 часа. Этот инвертор сочетает в одном корпусе систему зарядки аккумуляторной батареи, батарейный инвертор, гибридный инвертор, контроллер и системный мониторинг..
+
+      </br>Диапазон мощности трёхфазного напряжения на выходе инвертора Fronius Symo Hybrid от 3.0 до 5.0 кВт, а в пике до 8,0 кВт. Мощность блока солнечных батарей варьируется от 5 до 8 кВт, в зависимости от модели.
+
+      </br>Инвертор служит для питания бытовых потребителей и временного хранения избыточной энергии солнечных батарей.
+
+      </br>Интеллектуальная система управления Multi Flow контролирует и управляет потоками постоянного и переменного тока одновременно и во всех направлениях. Благодаря этому аккумуляторные батареи могут заряжаться не только от источника постоянного тока — солнечных батарей, но и от источника переменного тока — ветрогенератора и магистральной сети как по отдельности, так и одновременно. Это даёт возможность получить максимальную энергию и оптимальную рентабельность.
+
+      </br>В инвертор встроен веб-сервер с графическим интерфейсом, поэтому возможна работа по протоколам WLAN и Ethernet, а встроенная функция аварийного питания обеспечивает бесперебойное электроснабжение при перебоях и отсутствии питающей электроэнергии.
+
+      </br>Преимущества 
+      </br>ВСЁ В ОДНОМ 
+      </br>Зарядное устройство для аккумуляторной батареи, батарейный инвертор, гибридный инвертор, контроллер, системный мониторинг + функция трёхфазного аварийного источника питания. Поддерживает до 8 кВт на входе шины постоянного тока.
+
+      </br>ТЕХНОЛОГИЯ MULTI FLOW 
+      </br>Максимальный уровень самообеспечения благодаря технологии Multi Flow: одновременное сочетание потоков энергии по шинам постоянного и переменного тока
+
+      </br>SNAPINVERTOR 
+      </br>Это модульная конструкция, упрощающая установку и обслуживание инвертора. Сначала устанавливается модуль силового блока, а затем одевается декоративная крышка, в которую встроена вся электроника и модуль управления. В случае поломки инвертора его не нужно отключать и везти в ремонт, достаточно снять и заменить неисправный модуль управления, а неисправный отправить в ремонт. Смотреть видео.
+
+      </br>ПЕРЕДАЧА ДАННЫХ 
+      </br>Интерфейс WLAN или Ethernet, плюс простая интеграция компонентов сторонних производителей делают Symo одним из лучших инверторов на рынке. Система обеспечивает оперативное управление мощностью и контролем работы всей системы. Подключение к системам сторонних производителей обеспечивается благодаря интерфейсам Modbus TCP SunSpec, Modbus RTU SunSpec или Fronius Solar API (JSON). Все интерфейсы могут работать параллельно c Fronius Solar.web.
+
+      </br>SUPERFLEX 
+      </br>Ключевой момент — это два встроенных солнечных контроллера, каждый из которых подключён к собственному блоку солнечных батарей, что позволяет, независимо от ориентации крыши, получать максимальное напряжение.
+
+      </br>DYNAMIC PEAK MANAGER 
+      </br>Это революционный алгоритм отслеживания оптимальной рабочей точки, с помощью которого динамически меняется алгоритм работы контроллера MPPT. Фишка в том, что программа постоянно проверяет все локальные точки (LMPP) уровня напряжения и находит их максимальную общую точку (Gmpp). Смотреть видео.
+
+      </br>SMART GRID READY 
+      </br>Инверторы Fronius «заточены» в перспективу. Умные функции Advanced Grid Features оптимизируют выдачу реактивной и эффективной мощности, а так же стабилизацию напряжения, отдаваемого в сеть, при не стабильном напряжении солнечных батарей, предотвращая её потери.		</p></div>
+			 <div class="tab-content" id="two">
+				<div class="table-responsive" id="table-1">
+                <table>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                <tbody><tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                            <b>Вход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Количество MPP треккеров                                                                                     </td>
+                        <td>
+                            1                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Мощность фотоэлектрических модулей                                                                                     </td>
+                        <td>
+                            5,0 кВт                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальный ток (Idc max)                                                                                     </td>
+                        <td>
+                            1 x 16 A                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальный ток короткого замыкания                                                                                      </td>
+                        <td>
+                            24,0 A                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Минимальное напряжение на входе (Udc min)	                                                                                    </td>
+                        <td>
+                            150 В                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Напряжение начала работы (Udc start)	                                                                                    </td>
+                        <td>
+                            200 В                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Номинальное входящее напряжение(Udc,r)	                                                                                    </td>
+                        <td>
+                            595 В                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальное входящее напряжение(Udc max)                                                                                     </td>
+                        <td>
+                            1000 В                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Диапазон напряжений MPPT (Umpp min – Umpp max)	                                                                                    </td>
+                        <td>
+                            200 - 800 В                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Количество DC вводов (PV)	                                                                                    </td>
+                        <td>
+                            2                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                            <b>Батарея вход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальная входная мощность на батарею	                                                                                    </td>
+                        <td>
+                            Зависит от подключённой Fronius Solar Battery                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальная выходная мощность от батареи	                                                                                    </td>
+                        <td>
+                            Зависит от подключённой Fronius Solar Battery                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                            <b>Выход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Выходная мощность(Pac,r)	                                                                                    </td>
+                        <td>
+                            3000,0 W                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальная выходная мощность	                                                                                    </td>
+                        <td>
+                            3000 ВА                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальная мощность от сети к батарее	                                                                                    </td>
+                        <td>
+                            3000 ВА                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Максимальный переменный ток (Iac max)	                                                                                    </td>
+                        <td>
+                            4,8 А                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Подключение к сети (диапазон напряжений)                                                                                    </td>
+                        <td>
+                            3~NPE 400 В / 230 В или 3~NPE 380 В / 220 В (+20 % / -30 %)                         </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Частота (диапазон частот)	                                                                                    </td>
+                        <td>
+                            50 Hz / 60 Hz (45 - 65 Hz                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Суммарные гармонические искажения	                                                                                    </td>
+                        <td>
+                            &lt; 3 %                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Коэффициент мощности (cos φac,r)	                                                                                    </td>
+                        <td>
+                            0.85 - 1 ind. / cap.                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                            <b>Общие данные</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Размеры В*Ш*Г                                                                                    </td>
+                        <td>
+                            645*431*204 мм                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Вес	                                                                                    </td>
+                        <td>
+                            19,9 кг                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Защита	                                                                                    </td>
+                        <td>
+                            IP 65                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Класс защиты	                                                                                    </td>
+                        <td>
+                            1,0                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Потребление в ночное время	                                                                                    </td>
+                        <td>
+                            &lt; 1 Вт                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Тип инвертора	                                                                                    </td>
+                        <td>
+                            Бестрансформаторный                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Охлаждение	                                                                                    </td>
+                        <td>
+                            Регулируемое                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Установка	                                                                                    </td>
+                        <td>
+                            В помещении и на открытом воздухе                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Температура окружающего воздуха	                                                                                    </td>
+                        <td>
+                            -25°C - +60°C                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Относительная влажность	                                                                                    </td>
+                        <td>
+                            0 - 95 %                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                DC PV коннекторы                                                                                     </td>
+                        <td>
+                            2x DC+ and 2x DC- винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                DC батарейные коннекторы                                                                                     </td>
+                        <td>
+                            1x DC+ and 1x DC- винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                AC коннектор                                                                                     </td>
+                        <td>
+                            5-pin AC винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Функция "Аварийный режим"                                                                                     </td>
+                        <td>
+                            Да                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Макс. эффективность (PV - grid)                                                                                     </td>
+                        <td>
+                            97,7%                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Макс. эффективность (PV - battery - grid)                                                                                     </td>
+                        <td>
+                            &gt; 90%                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Эффективность MPP трекера                                                                                     </td>
+                        <td>
+                            &gt; 99,9%                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                            <b>Интерфейсы</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                WLAN / Ethernet LAN                                                                                    </td>
+                        <td>
+                            Fronius Solar.web, Modbus TCP SunSpec, Fronius Solar API (JSON)                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Регистратор данных и веб-сервера                                                                                     </td>
+                        <td>
+                            Встроенный                        </td>
+                    </tr>
+                                                                <tr class="j-scu-prop j-scu-13564">
+                        <td>
+                                                                                                Интерфейс заряда батареи и счетчик                                                                                     </td>
+                        <td>
+                            Modbus RTU (RS485)                        </td>
+                    </tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                            <b>Вход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Количество MPP трекеров                                                                                     </td>
+                        <td>
+                            1                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Мощность фотоэлектрических модулей                                                                                     </td>
+                        <td>
+                            6,5 кВт                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальный ток (Idc max)                                                                                     </td>
+                        <td>
+                            1 x 16 A                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальный ток короткого замыкания                                                                                      </td>
+                        <td>
+                            24,0 A                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Минимальное напряжение на входе (Udc min)	                                                                                    </td>
+                        <td>
+                            150 В                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Напряжение начала работы (Udc start)	                                                                                    </td>
+                        <td>
+                            200 В                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Номинальное входящее напряжение(Udc,r)	                                                                                    </td>
+                        <td>
+                            595 В                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальное входящее напряжение(Udc max)                                                                                     </td>
+                        <td>
+                            1000 В                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Диапазон напряжений MPPT (Umpp min – Umpp max)	                                                                                    </td>
+                        <td>
+                            200 - 800 В                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Количество DC вводов (PV)	                                                                                    </td>
+                        <td>
+                            2                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                            <b>Батарея вход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальная входная мощность на батарею	                                                                                    </td>
+                        <td>
+                            Зависит от подключённой Fronius Solar Battery                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальная выходная мощность от батареи	                                                                                    </td>
+                        <td>
+                            Зависит от подключённой Fronius Solar Battery                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                            <b>Выход</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Выходная мощность(Pac,r)	                                                                                    </td>
+                        <td>
+                            4000,0 W                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальная выходная мощность	                                                                                    </td>
+                        <td>
+                            4000 ВА                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальная мощность от сети к батарее	                                                                                    </td>
+                        <td>
+                            4000 ВА                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Максимальный переменный ток (Iac max)	                                                                                    </td>
+                        <td>
+                            4,8 А                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Подключение к сети (диапазон напряжений)                                                                                    </td>
+                        <td>
+                            3~NPE 400 В / 230 В или 3~NPE 380 В / 220 В (+20 % / -30 %)                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Частота (диапазон частот)	                                                                                    </td>
+                        <td>
+                            50 Hz / 60 Hz (45 - 65 Hz                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Суммарные гармонические искажения	                                                                                    </td>
+                        <td>
+                            &lt; 3 %                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Коэффициент мощности (cos φac,r)	                                                                                    </td>
+                        <td>
+                            0.85 - 1 ind. / cap.                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                            <b>Общие данные</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Размеры В*Ш*Г	                                                                                    </td>
+                        <td>
+                            645*431*204 мм                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Вес	                                                                                    </td>
+                        <td>
+                            19,9 кг                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Защита	                                                                                    </td>
+                        <td>
+                            IP 65                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Класс защиты	                                                                                    </td>
+                        <td>
+                            1,0                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Потребление в ночное время	                                                                                    </td>
+                        <td>
+                            &lt; 1 Вт                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Тип инвертора	                                                                                    </td>
+                        <td>
+                            Бестрансформаторный                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Охлаждение	                                                                                    </td>
+                        <td>
+                            Регулируемое                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Установка	                                                                                    </td>
+                        <td>
+                            В помещении и на открытом воздухе                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Температура окружающего воздуха	                                                                                    </td>
+                        <td>
+                            -25°C - +60°C                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Относительная влажность	                                                                                    </td>
+                        <td>
+                            0 - 100 %                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                DC PV коннекторы                                                                                     </td>
+                        <td>
+                            2x DC+ and 2x DC- винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                DC батарейные коннекторы                                                                                     </td>
+                        <td>
+                            1x DC+ and 1x DC- винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                AC коннектор                                                                                     </td>
+                        <td>
+                            5-pin AC винтовой зажим 2.5 - 16 mm²                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Функция "Аварийный режим"                                                                                     </td>
+                        <td>
+                            Да                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Макс. эффективность (PV - grid)                                                                                     </td>
+                        <td>
+                            97,9%                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Макс. эффективность (PV - battery - grid)                                                                                     </td>
+                        <td>
+                            &gt; 90%                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Эффективность MPP трекера &gt;                                                                                     </td>
+                        <td>
+                            99,9%                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                            <b>Интерфейсы</b>
+                                                    </td>
+                        <td>
+                                                    </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                WLAN / Ethernet LAN                                                                                     </td>
+                        <td>
+                            Fronius Solar.web, Modbus TCP SunSpec, ronius Solar API (JSON)                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                Регистратор данных и веб-сервера                                                                                     </td>
+                        <td>
+                            Встроенный                        </td>
+                    </tr>
+                                                                <tr style="display:none" class="j-scu-prop j-scu-13565">
+                        <td>
+                                                                                                нтерфейс заряда батареи и счетчик                                                                                     </td>
+                        <td>
+                            Modbus RTU (RS485)                        </td>
+                    </tr>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                </tbody></table>
+                    </div>
+			</div> 
+		</div>
+	</div>
+</section>
+
+
+
+<!-- <section class="gallerey">
+  <div class="container-fluid">
+    <h4 style="text-align: center; margin-top: 100px; font-family: 'Arial Black'; font-size: 70px; color: #000; font-weight: 900; margin-top: 70px;">ГАЛЛЕРЕЯ</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="img/gallerey/6/ss (2016-09-21 at 12.25.20).jpg" alt="" style="width: 700px;">
+      </div>
+      <div class="col-md-6">
+        <img src="img/gallerey/6/ss (2016-09-21 at 12.26.35).jpg" alt="" style="width: 700px;">
+      </div>
+      <div class="col-md-6" style="margin-top: 45px;">
+        <img src="img/gallerey/6/ss (2016-09-21 at 12.31.32).jpg" alt="" style="width: 700px; display: flex; justify-content: center; align-items: center;">
+      </div>
+    </div>
+   
+  </div>
+</section> -->
+
+
+
+
+
+   </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+<script>
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+
+
+
+
+
+  $('.tab-content').hide();
+$('.tab-content').first().show();
+$('.tab-btn').first().addClass('active');
+$('.tab-btn').click(function(){
+	link = $(this).attr('data');
+	$('#' + link).fadeIn(700);
+	$('#' + link).siblings('div').hide();
+	$(this).addClass('active');
+	$(this).siblings('.tab').removeClass('active');
+});
+
+   $(document).ready(function() {
+  $(".container").click(function() {
+    $(".stick").toggleClass(function () {
+      return $(this).is('.open, .close') ? 'open close' : 'open';
+    });
+  });
+});
+
+</script>
+</html>

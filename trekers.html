@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  body{
+    font-family: "Arial Black", sans-serif;
+  }
+
+  .video-container {
+  position: relative; /* Позиционирование контейнера*/
+  width: 100%;
+  height: 100vh; /* Высота экрана*/
+}
+
+.video-bg {
+  position: absolute; /* Видео занимает все пространство контейнера*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполняет весь контейнер, обрезая, если нужно*/
+  z-index: -1; /* Видео под контентом*/
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Для выравнивания контента*/
+  flex-direction: column; /* Столбцы*/
+  justify-content: left; /* Вертикальное выравнивание*/
+  align-items: left; /* Горизонтальное выравнивание*/
+  text-align: left; /* Выравнивание текста*/
+  color: white; /* Цвет текста*/
+  /* background-color: rgba(0, 0, 0, 0.7); Фон с прозрачностью */
+  background: #000;
+  z-index: 1; /* Над видео*/
+  opacity: 0.83;
+}
+
+
+
+  a{
+  color: #000;
+  /* background-color: #fff; */
+}
+
+a:hover{
+  color: #C63434;
+ 
+}
+
+
+</style>
+
+  <title>ЮСТ.РФ</title>
+</head>
+<body>
+<nav>
+
+      <a href="/">
+        <img src="img/logo.png" alt="">
+      </a>
+      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
+      <label for="burger-toggle" style="z-index: 100000;">
+        <span></span>
+      </label>
+      <ul class="header__list" style="z-index: 10000; list-style-type: none;  height: 860px; margin-top: 230px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
+box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);">
+        <li>
+          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
+        </li>
+        <li>
+          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
+        </li>
+        <li>
+          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
+        </li>
+        <li>
+          <a href="uslug.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
+        </li>
+        <li>
+          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
+        </li>
+  
+
+        <li>
+          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
+    
+        </li>
+        <li>
+          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
+    
+        </li>
+        
+   <li>
+          <a href="price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс-лист</a>
+    
+        </li>
+
+
+
+            <li>
+          <a href="sales.html" class="header__link" style="font-family: 'Arial Black';">Акции</a>
+
+        </li>
+
+         <li>
+          <a href="literats.html" class="header__link" style="font-family: 'Arial Black';">Литература</a>
+
+        </li>
+
+       
+      </ul>
+    </nav>
+
+
+
+  <div class="header-line" style="margin-bottom: 100px;">
+
+  </div>
+  
+
+
+  
+    </div>
+  
+
+<div class="container-fluid"> 
+
+  <div class="row">
+    <div class="col-md-6" style="margin-top: 10px;">
+  
+      <div class="card text-bg-dark" style=" background: #C63434;
+  background: #b5b5b5; border-radius: 30px;  height: 600px;">
+        
+      
+        <img src="img/DSC9995png.png" class="card-img img-fluid" alt="..." style="width: 370px; display: flex; margin: 0 auto; margin-top: 120px;" >
+        <div class="card-img-overlay">
+        
+<p style="text-align: center; margin: 0 auto;margin-top: 460px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Контроллер для управления солнечным трекером UST-C7</p>
+     <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 83%; left:82%;">
+      <a href="price/price7.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px; z-index: 1;"></a>
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" style="margin-top: 10px;">
+  
+      <div class="card text-bg-dark" style=" background: #C63434;
+  background: #b5b5b5; border-radius: 30px;  height: 600px;">
+        
+      
+        <img src="img/IMG_0991-white-Photoroom.png" class="card-img img-fluid" alt="..." style="width: 370px; display: flex; margin: 0 auto; margin-top: 120px;" >
+        <div class="card-img-overlay">
+          
+          <p style="text-align: center; margin: 0 auto;margin-top: 460px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Блок управления трекером UST-DR-001</p>
+   
+     <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 83%; left:82%;">
+       <a href="price/price8.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px; z-index: 1;"></a>
+    </div>
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+
+
+
+
+  
+
+ <div class="row">
+
+
+
+
+
+
+
+
+
+ 
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 415px;">
+      
+    
+      <img src="img/ssPhotoroom.png" class="card-img img-fluid" alt="..." style="width: 200px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+   
+        <p style="text-align: center; margin: 0 auto;margin-top: 310px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Опорно-поворотное устройство
+</p>
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price11.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 415px;">
+      
+    
+      <img src="img/DSC_0492_mid-Photoroom.png" class="card-img img-fluid" alt="..." style="width: 200px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+  
+         <p style="text-align: center; margin: 0 auto;margin-top: 310px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Шкаф управления солнечным трекером UST-DR-003
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price10.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 415px;">
+      
+    
+      <img src="img/DSC9953png.png" class="card-img img-fluid" alt="..." style="width: 200px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+ 
+<p style="text-align: center; margin: 0 auto;margin-top: 310px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Шкаф управления солнечным трекером UST-DR-002
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price9.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+<div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/battarey/traker.png" class="card-img img-fluid" alt="..." style=" display: flex; margin: 0 auto; margin-top: 80px; padding-right: 50px;" >
+      <div class="card-img-overlay">
+      
+   
+
+<p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-AADAT
+
+</p>
+
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price.html" target="_blank"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/linear_actutator.png" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+  
+
+<p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Линейные актуаторы
+
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price12.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+    <img src="img/linear_actutator.png" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+   
+
+
+<p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Актуаторы большой мощности
+
+</p>
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price13.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/motor_reductor.png" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+  
+
+<p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Мотор-редуктор
+
+</p>
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price14.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/cqweztuqkneonsuvqlnqthun - irjtehmhxi.jpg" class="card-img img-fluid" alt="..." style="width: 200px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+   
+
+<p style="text-align: center; margin: 0 auto;margin-top: 370px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-TTDAT
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price5.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/jhwchthlavcimmdaja3.jpg" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+  
+
+        <p style="text-align: center; margin: 0 auto;margin-top: 370px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-WHSAT-12
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+     <a href="price/price6.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/ss (2013-10-23 at 01.03.31) (1).jpg" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+   
+
+  <p style="text-align: center; margin: 0 auto;margin-top: 370px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-VSAT
+</p>
+
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price15.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/100_5182 (2) (1).jpg" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+   
+ <p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-PASAT-44
+
+</p>
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price3.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="col-md-4" style="margin-top: 10px;">
+
+    <div class="card text-bg-dark" style=" background: #C63434;
+background: #b5b5b5; border-radius: 30px;  height: 465px;">
+      
+    
+      <img src="img/ss (2015-01-29 at 03.05.05).jpg" class="card-img img-fluid" alt="..." style="width: 200px;  height: 270px; display: flex; margin: 0 auto; margin-top: 80px;" >
+      <div class="card-img-overlay">
+      
+  
+
+ <p style="text-align: center; margin: 0 auto;margin-top: 360px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;"> Трекер UST-HSAT-12
+
+</p>
+
+
+
+   <div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
+    <a href="price/price4.html"><img src="img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
+  </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </div>
+ 
+
+ 
+ 
+</div>  
+
+
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script>
+   $(document).ready(function() {
+  $(".container").click(function() {
+    $(".stick").toggleClass(function () {
+      return $(this).is('.open, .close') ? 'open close' : 'open';
+    });
+  });
+});
+
+</script>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/forms.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+  body{
+    font-family: "Arial Black", sans-serif;
+  }
+
+
+</style>
+
+  <title>ЮСТ.РФ</title>
+</head>
+<body>
+  
+  <!-- <nav >
+
+    <a href="/">
+      <img src="img/logo.png" alt="">
+    </a>
+    <input id="burger-toggle" type="checkbox">
+    <label for="burger-toggle">
+      <span></span>
+    </label>
+    <ul class="header__list">
+      <li>
+        <a href="/" class="header__link">Главная</a>
+      </li>
+      <li>
+        <a href="/" class="header__link">Видео</a>
+      </li>
+      <li>
+        <a href="/" class="header__link">Shorts</a>
+      </li>
+      <li>
+        <a href="/" class="header__link">Трансляции</a>
+      </li>
+      <li>
+        <a href="/" class="header__link">Плейлисты</a>
+      </li>
+      <li>
+        <a href="/" class="header__link">Сообщество</a>
+  
+      </li>
+    </ul>
+    
+  </nav> -->
+
+
+
+
+
+    </div>
+    <div class="header-line">
+
+    </div>
+   
+    <div class="container-fluid">
+     
+      <div class="center">
+          <form method="POST" action="mail.php" autocomplete="off">
+             <h3 style="margin-bottom: 25px; opacity: 0.5; text-decoration: underline;">Форма обратной связи</h3>
+              <div class="txt_field" style="margin-top: 95px;">
+                
+                  <input type="text" name="name" required autocomplete="off">
+                  <span></span>
+                  
+                  <label style="width: 130px;">Имя и Фамилия</label>
+              </div>
+              <div class="txt_field">
+                  <input type="email" name="email" required autocomplete="off">
+                  <span></span>
+                  <label style="width: 150px;">Электронная почта</label>
+              </div>
+              <div class="txt_field">
+                <input class="card-number" type="number" id="number" name="numner" placeholder="+7 (000) 000-00-00" value="+7 (000) 000-00-00">
+                  <span></span>
+              </div>
+              <div class="txt_field">
+                  <input type="text" name="cpassword" required autocomplete="off">
+                  <span></span>
+                  <label style="width: 150px;">Город</label>
+              </div>
+              <input name="submit" type="Submit" value="Отправить" autocomplete="off">
+             
+          </form> 
+
+
+          
+      </div>
+  </div>
+<script type="module" src="js/stils.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+<script>
+
+const inputField = document.querySelector('.number');
+
+const maskOptions = {
+  mask: '+7 (000) 000-00-00'
+};
+
+const mask = IMask(inputField, maskOptions);
+
+
+
+
+
+   $(document).ready(function() {
+  $(".container").click(function() {
+    $(".stick").toggleClass(function () {
+      return $(this).is('.open, .close') ? 'open close' : 'open';
+    });
+  });
+});
+
+var input = document.querySelector("#phone");
+window.intlTelInput(input, {
+  separateDialCode: true
+});
+
+var input = document.querySelector("#phone");
+window.intlTelInput(input, {
+    // show dial codes too
+    separateDialCode: true,
+    // If there are some countries you want to show on the top.
+    // here we are promoting russia and singapore.
+    preferredCountries: ["ru", "sg"],
+    //Default country
+    initialCountry:"sg",
+    // show only these countres, remove all other
+    onlyCountries: ["ru", "cn","pk", "sg", "my", "bd"],
+    // If there are some countries you want to execlde.
+    // here we are exluding india and israel.
+    excludeCountries: ["in","il"]
+});
+
+
+var input = document.querySelector("#phone");
+            window.intlTelInput(input, {
+                separateDialCode: true,
+                excludeCountries: ["in", "il"],
+                preferredCountries: ["ru", "jp", "pk", "no"]
+            });
+</script>
+</html>
