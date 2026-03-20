@@ -17,7 +17,7 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(145deg, #b5b5b5, #8f8f8f);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -83,19 +83,6 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
     
-    .contact-icon {
-      width: 60px;
-      height: 60px;
-      background: #C63434;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      color: white;
-      font-size: 1.5rem;
-    }
-    
     .contact-label {
       color: #666;
       font-size: 0.9rem;
@@ -117,20 +104,12 @@
       transition: color 0.3s ease;
     }
     
-    .contact-value a:hover {
-      color: #C63434;
-    }
-    
     .back-link {
       display: inline-block;
       margin-top: 2rem;
       color: #666;
       text-decoration: none;
       transition: color 0.3s ease;
-    }
-    
-    .back-link:hover {
-      color: #C63434;
     }
     
     @media (max-width: 576px) {
@@ -149,24 +128,48 @@
   </style>
 </head>
 <body>
+
+ <div class="container-fluid">
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="img/logo.png" alt="ЮСТ.РФ">
+      </a>
+      
+      <input type="checkbox" id="burger-toggle" >
+      <label for="burger-toggle" >
+        <span></span>
+      </label>
+      
+      <ul class="nav-menu header__list">
+        <li><a href="/" class="header__link">Главная</a></li>
+        <li><a href="category.html" class="header__link">Категории</a></li>
+        <li><a href="delivery.html" class="header__link">Доставка</a></li>
+        <li><a href="contacts.html" class="header__link">Контакты</a></li>
+        <li><a href="garant.html" class="header__link">Гарантии и сервис</a></li>
+        <li><a href="avtonomnaya-sistema-ust.xls" class="header__link">Расчёт системы</a></li>
+        <li><a href="price ЮСТ.xlsx" class="header__link">Прайс лист</a></li>
+      </ul>
+    </nav>
+  </div>
+  </div>
+
   <div class="contacts-container">
     <div class="contacts-card">
       <h1 class="contacts-title">Контакты</h1>
       
       <div class="contact-item">
-        <div class="contact-icon">📞</div>
         <div class="contact-label">Телефон</div>
         <p class="contact-value">+7 (8412) 56-47-25</p>
       </div>
       
       <div class="contact-item">
-        <div class="contact-icon">📱</div>
         <div class="contact-label">Мобильный</div>
         <p class="contact-value">+7 927 289-05-99</p>
       </div>
       
       <div class="contact-item">
-        <div class="contact-icon">✉️</div>
         <div class="contact-label">Email</div>
         <p class="contact-value">
           <a href="mailto:solar@ust.su">solar@ust.su</a>
