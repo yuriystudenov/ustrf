@@ -1,98 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/forms.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-  body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-
-</style>
-
-  <title>ЮСТ.РФ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style/forms.css">
+  
+  <title>ЮСТ.РФ - Контакты</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .contacts-container {
+      width: 100%;
+      max-width: 600px;
+      padding: 2rem;
+    }
+    
+    .contacts-card {
+      background: white;
+      border-radius: 30px;
+      padding: 3rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contacts-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #C63434, #FF8484);
+    }
+    
+    .contacts-title {
+      color: #C63434;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .contacts-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #C63434;
+    }
+    
+    .contact-item {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-icon {
+      width: 60px;
+      height: 60px;
+      background: #C63434;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .contact-label {
+      color: #666;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-value {
+      color: #333;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .contact-value a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .contact-value a:hover {
+      color: #C63434;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .back-link:hover {
+      color: #C63434;
+    }
+    
+    @media (max-width: 576px) {
+      .contacts-container {
+        padding: 1rem;
+      }
+      
+      .contacts-card {
+        padding: 2rem 1.5rem;
+      }
+      
+      .contact-value {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
- <h3 style="text-align: center; font-size: 30px; color: #C63434; margin-top: 90px;">Контактные данные</h3>
-          <div class="phone1">
-              <p style="text-align: center; margin-top: 50px;font-weight: 700; font-size: 17px;">+7 (8412) 56-47-25</p>
-          </div>
-          <div class="phone2">
-              <p style="text-align: center; margin-top: 15px;font-weight: 700; font-size: 17px;">+7 927 289-05-99</p>
-          </div>
-          <div class="emails">
-              <p style="text-align: center; margin-top: 15px;font-weight: 700; font-size: 17px;">solar@ust.su  </p>
-          </div>
-
-
-          
+  <div class="contacts-container">
+    <div class="contacts-card">
+      <h1 class="contacts-title">Контакты</h1>
+      
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">Телефон</div>
+        <p class="contact-value">+7 (8412) 56-47-25</p>
       </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-label">Мобильный</div>
+        <p class="contact-value">+7 927 289-05-99</p>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-label">Email</div>
+        <p class="contact-value">
+          <a href="mailto:solar@ust.su">solar@ust.su</a>
+        </p>
+      </div>
+      
+      <a href="/" class="back-link">← Вернуться на главную</a>
+    </div>
   </div>
-<script type="module" src="js/stils.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/css/intlTelInput.css"/>
-<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-<script>
-
-const inputField = document.querySelector('.number');
-
-const maskOptions = {
-  mask: '+7 (000) 000-00-00'
-};
-
-const mask = IMask(inputField, maskOptions);
-
-
-
-
-
-   $(document).ready(function() {
-  $(".container").click(function() {
-    $(".stick").toggleClass(function () {
-      return $(this).is('.open, .close') ? 'open close' : 'open';
-    });
-  });
-});
-
-var input = document.querySelector("#phone");
-window.intlTelInput(input, {
-  separateDialCode: true
-});
-
-var input = document.querySelector("#phone");
-window.intlTelInput(input, {
-    // show dial codes too
-    separateDialCode: true,
-    // If there are some countries you want to show on the top.
-    // here we are promoting russia and singapore.
-    preferredCountries: ["ru", "sg"],
-    //Default country
-    initialCountry:"sg",
-    // show only these countres, remove all other
-    onlyCountries: ["ru", "cn","pk", "sg", "my", "bd"],
-    // If there are some countries you want to execlde.
-    // here we are exluding india and israel.
-    excludeCountries: ["in","il"]
-});
-
-
-var input = document.querySelector("#phone");
-            window.intlTelInput(input, {
-                separateDialCode: true,
-                excludeCountries: ["in", "il"],
-                preferredCountries: ["ru", "jp", "pk", "no"]
-            });
-</script>
 </html>

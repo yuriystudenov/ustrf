@@ -1,475 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/main.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-  body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-  .video-container {
-  position: relative; /* Позиционирование контейнера*/
-  width: 100%;
-  height: 100vh; /* Высота экрана*/
-}
-
-.video-bg {
-  position: absolute; /* Видео занимает все пространство контейнера*/
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Заполняет весь контейнер, обрезая, если нужно*/
-  z-index: -1; /* Видео под контентом*/
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex; /* Для выравнивания контента*/
-  flex-direction: column; /* Столбцы*/
-  justify-content: left; /* Вертикальное выравнивание*/
-  align-items: left; /* Горизонтальное выравнивание*/
-  text-align: left; /* Выравнивание текста*/
-  color: white; /* Цвет текста*/
-  /* background-color: rgba(0, 0, 0, 0.7); Фон с прозрачностью */
-  background: #000;
-  z-index: 1; /* Над видео*/
-  opacity: 0.83;
-}
-
-
-</style>
-
-  <title>ЮСТ.РФ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style/main.css">
+  
+  <title>ЮСТ.РФ - Категории товаров</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+    
+    /* Category Header */
+    .category-header {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-bottom: 3rem;
+      border-radius: 0 0 50px 50px;
+    }
+    
+    .category-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    
+    .category-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Category Cards */
+    .category-section {
+      padding: 2rem 0 5rem;
+    }
+    
+    .category-card {
+      height: 500px;
+      background: linear-gradient(145deg, #b5b5b5, #8f8f8f);
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
+      margin-bottom: 2rem;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .category-card.large {
+      height: 600px;
+    }
+    
+    .category-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    
+    .category-card:hover .category-overlay {
+      background: rgba(198, 52, 52, 0.8);
+    }
+    
+    .category-title {
+      color: white;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .category-description {
+      color: white;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      max-width: 400px;
+    }
+    
+    .category-button {
+      padding: 15px 40px;
+      background-color: #C63434;
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: 2px solid white;
+      display: inline-block;
+    }
+    
+    .category-button:hover {
+      background-color: white;
+      color: #C63434;
+      border-color: #C63434;
+    }
+    
+    /* Grid Layout */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    .full-width {
+      grid-column: span 2;
+    }
+    
+    @media (max-width: 768px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .full-width {
+        grid-column: span 1;
+      }
+      
+      .category-card {
+        height: 400px;
+      }
+      
+      .category-card.large {
+        height: 400px;
+      }
+    }
+  </style>
 </head>
 <body>
-        <nav>
-
-      <a href="/">
-        <img src="../img/logo.png" alt="">
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="img/logo.png" alt="ЮСТ.РФ">
       </a>
-      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
-      <label for="burger-toggle" style="z-index: 100000;">
+      
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger-label">
         <span></span>
       </label>
-      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 750px; margin-top: 150px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);" >
-        <li>
-          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
-        </li>
-        <li>
-          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
-        </li>
-        <li>
-          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
-        </li>
-        <li>
-          <a href="contacts.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
-        </li>
-        <li>
-          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
-        </li>
-  
-
-        <li>
-          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
-    
-        </li>
-        <li>
-          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
-    
-        </li>
-        
-
-         <li>
-          <a href="price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
-    
-        </li>
-
-        
-
-       
+      
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Главная</a></li>
+        <li><a href="category.html" class="nav-link active">Категории</a></li>
+        <li><a href="delivery.html" class="nav-link">Доставка</a></li>
+        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+        <li><a href="credit.html" class="nav-link">Кредитование</a></li>
+        <li><a href="garant.html" class="nav-link">Гарантии и сервис</a></li>
+        <li><a href="avtonomnaya-sistema-ust.xls" class="nav-link">Расчёт системы</a></li>
+        <li><a href="price.xlsx" class="nav-link">Прайс лист</a></li>
       </ul>
     </nav>
-
-  <div class="header-line">
-
   </div>
 
-  
-    </div>
-  
+  <!-- Header line -->
+  <div class="header-line"></div>
 
-    <!-- <div class="video-container">
-      <video class="video-bg" autoplay muted loop poster="poster.jpg">
-          <source src="video/category.MP4" type="video/mp4">
-          Your browser does not support the video tag.
+  <!-- Category Header -->
+  <div class="category-header">
+    <div class="container-fluid">
+      <h1>Категории товаров</h1>
+      <p>Широкий выбор оборудования для солнечной энергетики</p>
+    </div>
+  </div>
+
+  <!-- Categories Grid -->
+  <div class="container-fluid category-section">
+    <div class="categories-grid">
       
-  </video>
-
-      <div class="overlay">
-        <h1 style="font-size: 100px; position: absolute; top: 40%;margin-left: 80px; opacity: 1; color: #ff5656; z-index: 2;">“переходите на чистую </br>энергию с солнечными </br>батареями„ </h1>
-          <p style="font-size: 20px; position: absolute; top: 75%;margin-left: 80px; opacity: 1; color: #fff; z-index: 2; text-decoration: underline;">Смотреть ниже...</p>
-      </div>
-  </div> -->
- <section class="cat1" style="min-height: 500px;margin-top: 70px;">
-
-   <div class="row">
-    <div class="col-md-6">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-background: #b5b5b5;;">
-        <div class="card-img-overlay">
-          <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px; text-align: center;">Солнечные батареи</h5>
-          <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-          <div class="container">
-            <a href="solar_panels.html" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 120px;"> Перейти</a>
-          </div>
-       
+      <!-- Category 1: Solar Panels -->
+      <div class="category-card large">
+        <div class="category-overlay">
+          <h2 class="category-title">Солнечные батареи</h2>
+          <p class="category-description">Высокоэффективные фотоэлектрические модули для вашего дома и бизнеса</p>
+          <a href="solar_panels.html" class="category-button">Перейти</a>
         </div>
       </div>
+      
+      <!-- Category 2: Autonomous Lighting -->
+      <div class="category-card large">
+        <div class="category-overlay">
+          <h2 class="category-title">Автономное освещение</h2>
+          <p class="category-description">Энергонезависимые решения для освещения улиц и общественных пространств</p>
+          <a href="autonomous_lighting.html" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 3: Trackers (Full Width) -->
+      <div class="category-card full-width">
+        <div class="category-overlay">
+          <h2 class="category-title">Трекеры</h2>
+          <p class="category-description">Системы слежения за солнцем для максимальной эффективности солнечных панелей</p>
+          <a href="trekers.html" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 4: Inverters -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Инверторы</h2>
+          <p class="category-description">Преобразователи напряжения для солнечных электростанций</p>
+          <a href="inventors/inventors.html" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 5: Batteries -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Аккумуляторы</h2>
+          <p class="category-description">Надежные системы хранения энергии</p>
+          <a href="battareys.html" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 6: Controllers -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Солнечные контроллеры</h2>
+          <p class="category-description">Умные устройства управления зарядом</p>
+          <a href="#" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 7: Converters -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Конверторы</h2>
+          <p class="category-description">Преобразователи напряжения и частоты</p>
+          <a href="#" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 8: Accessories -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Аксессуары</h2>
+          <p class="category-description">Дополнительное оборудование и комплектующие</p>
+          <a href="#" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 9: LiFePO4 Batteries -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">LiFePO4 Аккумуляторы</h2>
+          <p class="category-description">Литий-железо-фосфатные батареи нового поколения</p>
+          <a href="#" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- Category 10: Chargers -->
+      <div class="category-card">
+        <div class="category-overlay">
+          <h2 class="category-title">Зарядные устройства</h2>
+          <p class="category-description">Для всех типов аккумуляторов</p>
+          <a href="#" class="category-button">Перейти</a>
+        </div>
+      </div>
+      
+      <!-- More categories can be added here following the same pattern -->
+      
     </div>
-    <div class="col-md-6">
-      <div class="card text-white" style="height: 1000px; background: #C63434;
-background: #b5b5b5;;"> 
-
-<div class="card-img-overlay">
-  <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px; text-align: center;">Автономное уличное освещение</h5>
-  <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-  <div class="container">
-    <a href="autonomous_lighting.html" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 120px;"> Перейти</a>
   </div>
 
-</div>
-      </div>
-    </div>
-   </div>
-
-
-   <div class="row" style="margin-top: 30px;margin-bottom: 30px;">
-    <div class="col-md-12">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;">Трекеры</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="trekers.html" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 120px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-   </div>
-
-
-
-
-
-   <div class="row">
-    <div class="col-md-6">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-background: #b5b5b5;;">
-        <div class="card-img-overlay">
-          <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;">Инвенторы</h5>
-          <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-          <div class="container">
-            <a href="inventors/inventors.html" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 120px;"> Перейти</a>
-          </div>
-       
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card text-white" style="height: 1000px; background: #C63434;
-background: #b5b5b5;;"> 
-
-<div class="card-img-overlay">
-  <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;">Аккумуляторы</h5>
-  <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-  <div class="container">
-    <a href="battareys.html" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 120px;"> Перейти</a>
-  </div>
-
-</div>
-      </div>
-    </div>
-   </div>
-   
-
-
-
-
-   <div class="row" style="margin-top: 30px;">
-    <div class="col-md-6">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-background: #b5b5b5;;">
-        <div class="card-img-overlay">
-          <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;">Cолнечные </br> контроллеры</h5>
-          <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-          <div class="container">
-            <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-          </div>
-       
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Конвенторы</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-      <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Аксессуары</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-      <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Аккумуляторы </br>(литий-железо-фосфатные)</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-      <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Зарядные </br>устройства</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-     <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Интерфейсы </br>и кабели</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-       <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Панели </br>управления</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-      <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Солнечные </br>коллекторы</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-     <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Источники </br>безперибойного питания</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-     <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Гибридные </br>солнечные электростанции</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-       <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Генераторы</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-        <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Микро-гидро</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-           <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Тепловые </br>насосы</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-    
-          <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Монтажные </br>конструкции</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-        <div class="col-md-6" style="margin-top: 30px;">
-      <div class="card  text-white" style="height: 1000px; background: #C63434;
-      background: #b5b5b5;;">
-              <div class="card-img-overlay">
-                <h5 class="card-title" style="display: flex; justify-content: center; align-items:center; font-weight: 900; font-size: 53px;margin-top: 350px;margin-bottom: 50px;text-align: center;">Устройства для </br>монтажа СБ</h5>
-                <p class="card-text"  style="display: flex; justify-content: center; text-align: center;opacity: 0.5;">На данной категории можно выбрать любой товар из</br> солнечных батарей и заказать его.</p>
-                <div class="container">
-                  <a href="#" style="text-align: center; padding: 25px 55px; background-color: #C63434; color: #fff; text-decoration: underline; border-radius: 100px; font-weight: 900;margin-top: 350px;"> Перейти</a>
-                </div>
-             
-              </div>
-            </div>
-    </div>
-    
-    
-   </div>
-   
-   
-  
-   </div>
-   
-   
-   
-   
-   </div>
-   
-   
-   
-   
-   </div>
-   
-   
-   
-   
-   </div>
-
-
-
- </section>
- 
-  
-
-
-
-
-
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script>
-   $(document).ready(function() {
-  $(".container").click(function() {
-    $(".stick").toggleClass(function () {
-      return $(this).is('.open, .close') ? 'open close' : 'open';
-    });
-  });
-});
-
-</script>
 </html>

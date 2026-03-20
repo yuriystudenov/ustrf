@@ -1,366 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/forms.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-  .video-container {
-  position: relative; /* Позиционирование контейнера*/
-  width: 100%;
-  height: 100vh; /* Высота экрана*/
-}
-
-.video-bg {
-  position: absolute; /* Видео занимает все пространство контейнера*/
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Заполняет весь контейнер, обрезая, если нужно*/
-  z-index: -1; /* Видео под контентом*/
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex; /* Для выравнивания контента*/
-  flex-direction: column; /* Столбцы*/
-  justify-content: left; /* Вертикальное выравнивание*/
-  align-items: left; /* Горизонтальное выравнивание*/
-  text-align: left; /* Выравнивание текста*/
-  color: white; /* Цвет текста*/
-  /* background-color: rgba(0, 0, 0, 0.7); Фон с прозрачностью */
-  background: #000;
-  z-index: 1; /* Над видео*/
-  opacity: 0.83;
-}
-
-  body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-
-  a{
-    background-color: none;
-    color: #2c2c2c;
-  }
-
-
-    a:hover{
-    background-color: transparent;
-    color: #C63434;
-  }
-
-</style>
-
-  <title>ЮСТ.РФ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style/main.css">
+  
+  <title>ЮСТ.РФ - Литература и СМИ</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    }
+    
+    .literature-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    
+    .literature-header {
+      margin-bottom: 4rem;
+    }
+    
+    .literature-title {
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    
+    .literature-title span {
+      color: #C63434;
+      text-decoration: underline;
+    }
+    
+    .literature-subtitle {
+      color: #6c757d;
+      font-size: 1.2rem;
+    }
+    
+    .accordion-item {
+      border: none;
+      margin-bottom: 1rem;
+      border-radius: 15px !important;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .accordion-button {
+      font-weight: 600;
+      padding: 1.5rem;
+      background: white;
+    }
+    
+    .accordion-button p {
+      color: #C63434;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    
+    .accordion-button:not(.collapsed) {
+      background: white;
+      color: #C63434;
+    }
+    
+    .accordion-button:focus {
+      box-shadow: none;
+      border-color: rgba(198, 52, 52, 0.3);
+    }
+    
+    .accordion-body {
+      padding: 1.5rem;
+      background: #f8f9fa;
+    }
+    
+    .literature-link {
+      display: block;
+      color: #2c2c2c;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      background: white;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .literature-link:hover {
+      background: #C63434;
+      color: white;
+      transform: translateX(5px);
+    }
+    
+    .category-badge {
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      background: #C63434;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .literature-container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-   <nav>
-
-      <a href="/">
-        <img src="../img/logo.png" alt="">
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="img/logo.png" alt="ЮСТ.РФ">
       </a>
-      <input id="burger-toggle" type="checkbox" style="z-index: 9999999;">
-      <label for="burger-toggle" style="z-index: 1000000000000;">
+      
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger-label">
         <span></span>
       </label>
-      <ul class="header__list" style="z-index: 9999999; list-style-type: none;  height: 860px; margin-top: 180px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);" >
-        <li>
-          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
-        </li>
-        <li>
-          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
-        </li>
-        <li>
-          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
-        </li>
-        <li>
-          <a href="uslug.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
-        </li>
-        <li>
-          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
-        </li>
-  
-
-        <li>
-          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
-    
-        </li>
-        <li>
-          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
-    
-        </li>
-        
-
-         <li>
-          <a href="price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
-    
-        </li>
-
-        
-
-       
+      
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Главная</a></li>
+        <li><a href="category.html" class="nav-link">Категории</a></li>
+        <li><a href="delivery.html" class="nav-link">Доставка</a></li>
+        <li><a href="uslug.html" class="nav-link">Контакты</a></li>
+        <li><a href="credit.html" class="nav-link">Кредитование</a></li>
+        <li><a href="garant.html" class="nav-link">Гарантии и сервис</a></li>
+        <li><a href="avtonomnaya-sistema-ust.xls" class="nav-link">Расчёт системы</a></li>
+        <li><a href="price.xlsx" class="nav-link">Прайс лист</a></li>
       </ul>
     </nav>
-
-
-
-
-
-    </div>
-    <div class="header-line">
-
-    </div>
-   
-    <div class="container-fluid">
-     
-  <div class="header-offer" style="margin-bottom: 106px;">
-      <h1 class="index-offers" style="font-weight: 900;text-decoration: underline; "><span style="color: #C63434;">Литература </span><br> СМИ</h1>
-    </div>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        <p style="font-weight: 600;font-size: 19px;color: #C63434;">Гелиоэнергетика</p>
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-      <a href="#" style="margin-bottom: 7px;">Развитие солнечной энергетики</br></a>  
-       <a href="#" style="margin-bottom: 7px;">Солнечные регуляторы</br></a> 
-       <a href="#" style="margin-bottom: 7px;">Автономное электроснабжение</br></a> 
-        <a href="#" style="margin-bottom: 7px;"> Преобразование солнечной энергии</br></a>
-        <a href="#" style="margin-bottom: 7px;">Солнечные батареи</br></a>
-        <a href="#" style="margin-bottom: 7px;">Окупаемость систем на солнечных батареях</br></a>
-        <a href="#" style="margin-bottom: 7px;">Трекеры</br></a>
-        <a href="#" style="margin-bottom: 7px;">Солнечные коллекторы</br></a>
-        <a href="#" style="margin-bottom: 7px;">Аккумуляторы</br></a>
-       <a href="#" style="margin-bottom: 7px;"> Инверторы</br></a>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-      <p style="font-weight: 600;font-size: 19px; color: #C63434;">Ветроэнергетика</p>   
-      </button>
-    </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Ветрогенераторы</br></a>
-        <a href="#" style="margin-bottom: 7px;">Парусные установки</br></a>
-        <a href="#" style="margin-bottom: 7px;">Новости ветроэнегетики</br></a>
-        <a href="#" style="margin-bottom: 7px;">Рекомендации покупателю ветроэнергетической установки</br></a>
-      </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-        <p style="font-weight: 600;font-size: 19px; color: #C63434;">Гидроэнергетика</p>
-      </button>
-    </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Мини-Гидро</br></a>
-        <a href="#" style="margin-bottom: 7px;">Новости гидроэнергетики</br></a>
-      </div>
-    </div>
   </div>
 
-    <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFire" aria-expanded="false" aria-controls="flush-collapseFire">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Генераторы</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseFire" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        
-        <a href="#" style="margin-bottom: 7px;">Основная информация о генераторах</br></a>
+  <!-- Header line -->
+  <div class="header-line"></div>
 
-      </div>
+  <!-- Literature Content -->
+  <div class="literature-container">
+    <div class="literature-header">
+      <h1 class="literature-title">
+        <span>Литература</span><br>СМИ
+      </h1>
+      <p class="literature-subtitle">Полезные материалы и публикации о солнечной энергетике</p>
     </div>
-  </div>
-
+    
+    <div class="accordion accordion-flush" id="literatureAccordion">
+      
+      <!-- Solar Energy -->
       <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseMire" aria-expanded="false" aria-controls="flush-collapseMire">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Тепловые насосы</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseMire" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">История, устройство и характеристики тепловых насосов</br></a>
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolar">
+            <p>Гелиоэнергетика</p>
+          </button>
+        </h2>
+        <div id="collapseSolar" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Развитие солнечной энергетики</a>
+            <a href="#" class="literature-link">Солнечные регуляторы</a>
+            <a href="#" class="literature-link">Автономное электроснабжение</a>
+            <a href="#" class="literature-link">Преобразование солнечной энергии</a>
+            <a href="#" class="literature-link">Солнечные батареи</a>
+            <a href="#" class="literature-link">Окупаемость систем на солнечных батареях</a>
+            <a href="#" class="literature-link">Трекеры</a>
+            <a href="#" class="literature-link">Солнечные коллекторы</a>
+            <a href="#" class="literature-link">Аккумуляторы</a>
+            <a href="#" class="literature-link">Инверторы</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-        <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTire" aria-expanded="false" aria-controls="flush-collapseTire">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Зарядные устройства</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseTire" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        
+      
+      <!-- Wind Energy -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWind">
+            <p>Ветроэнергетика</p>
+          </button>
+        </h2>
+        <div id="collapseWind" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Ветрогенераторы</a>
+            <a href="#" class="literature-link">Парусные установки</a>
+            <a href="#" class="literature-link">Новости ветроэнергетики</a>
+            <a href="#" class="literature-link">Рекомендации покупателю ветроэнергетической установки</a>
+          </div>
+        </div>
       </div>
+      
+      <!-- Hydro Energy -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHydro">
+            <p>Гидроэнергетика</p>
+          </button>
+        </h2>
+        <div id="collapseHydro" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Мини-Гидро</a>
+            <a href="#" class="literature-link">Новости гидроэнергетики</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Generators -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenerators">
+            <p>Генераторы</p>
+          </button>
+        </h2>
+        <div id="collapseGenerators" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Основная информация о генераторах</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Heat Pumps -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHeatPumps">
+            <p>Тепловые насосы</p>
+          </button>
+        </h2>
+        <div id="collapseHeatPumps" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">История, устройство и характеристики тепловых насосов</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Solar Basics -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBasics">
+            <p>Основы солнечной энергетики</p>
+          </button>
+        </h2>
+        <div id="collapseBasics" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Введение</a>
+            <a href="#" class="literature-link">Свойства света</a>
+            <a href="#" class="literature-link">Работа солнечного элемента</a>
+            <a href="#" class="literature-link">Конструкция кремниевых СЭ</a>
+            <a href="#" class="literature-link">Производство кремниевых СЭ</a>
+            <a href="#" class="literature-link">Солнечные модули и батареи</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Countries -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCountries">
+            <p>Солнечная энергетика разных стран</p>
+          </button>
+        </h2>
+        <div id="collapseCountries" class="accordion-collapse collapse" data-bs-parent="#literatureAccordion">
+          <div class="accordion-body">
+            <a href="#" class="literature-link">Россия</a>
+            <a href="#" class="literature-link">США</a>
+            <a href="#" class="literature-link">Испания</a>
+            <a href="#" class="literature-link">Япония</a>
+            <a href="#" class="literature-link">Китай</a>
+            <a href="#" class="literature-link">Германия</a>
+            <a href="#" class="literature-link">Греция</a>
+            <a href="#" class="literature-link">Швейцария</a>
+            <a href="#" class="literature-link">Украина</a>
+            <a href="#" class="literature-link">Словения</a>
+            <a href="#" class="literature-link">Узбекистан</a>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 
-
-       <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseLore" aria-expanded="false" aria-controls="flush-collapseLore">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Коммерческие предложения</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseLore" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item’s accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-    </div>
-  </div>
-         <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseLare" aria-expanded="false" aria-controls="flush-collapseLare">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Основы солнечной энергетики</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseLare" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        
-
-
-
-  <a href="#" style="margin-bottom: 7px;">Введение</br></a>  
-       <a href="#" style="margin-bottom: 7px;">Свойства света</br></a> 
-       <a href="#" style="margin-bottom: 7px;">Работа солнечного элемента</br></a> 
-        <a href="#" style="margin-bottom: 7px;">Конструкция кремниевых СЭ</br></a>
-        <a href="#" style="margin-bottom: 7px;">Производство кремниевых СЭ</br></a>
-        <a href="#" style="margin-bottom: 7px;">Солнечные модули и батареи</br></a>
-
-
-      </div>
-    </div>
-  </div>
-         <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsePare" aria-expanded="false" aria-controls="flush-collapsePare">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Солнечная энергетика разных стран</p> 
-      </button>
-    </h2>
-    <div id="flush-collapsePare" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Россия</br></a>  
-        <a href="#" style="margin-bottom: 7px;">США</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Испания</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Япония</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Китай</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Германия</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Греция</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Швейцария</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Украина</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Словения</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Узбекистан</br></a>  
-      </div>
-    </div>
-  </div>
-       <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCare" aria-expanded="false" aria-controls="flush-collapseCare">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Оптимизация энергоснабжения</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseCare" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-         <a href="#" style="margin-bottom: 7px;">Солнечный дом</br></a>  
-      </div>
-    </div>
-  </div>
-     <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseZare" aria-expanded="false" aria-controls="flush-collapseZare">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Энергосбережение</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseZare" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Городское хозяйство</br></a>  
-         <a href="#" style="margin-bottom: 7px;">Источники света</br></a>  
-          <a href="#" style="margin-bottom: 7px;">Решения</br></a>  
-           <a href="#" style="margin-bottom: 7px;">Умный дом</br></a>  
-            <a href="#" style="margin-bottom: 7px;">Экологический транспорт</br></a>  
-             <a href="#" style="margin-bottom: 7px;">Энергообеспечение</br></a>  
-              <a href="#" style="margin-bottom: 7px;">Стабилизаторы напряжения</br></a>  
-      </div>
-    </div>
-  </div>
-       <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSpara" aria-expanded="false" aria-controls="flush-collapseSpara">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Справочники</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseSpara" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Зависимость солнечной радиации от угла наклона панелей или слежением за солнцем</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Коэффициенты фотоэлектрического преобразования для различных типов фотоэлементов</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Поступление суммарной и рассеянной солнечной радиации</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Сервер "Погода России" - Архив погоды</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Скорость ветра в разных регионах</br></a>  
-        <a href="#" style="margin-bottom: 7px;">Суммарная солнечная радиация на горизонтальную поверхность при действительных условиях облачности</br></a>  
-      </div>
-    </div>
-  </div>
-       <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTpara" aria-expanded="false" aria-controls="flush-collapseTpara">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Интересное</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseTpara" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Интересные факты</br></a>  
-      </div>
-    </div>
-  </div>
-     <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNpara" aria-expanded="false" aria-controls="flush-collapseNpara">
-       <p style="font-weight: 600;font-size: 19px; color: #C63434;">Федеральные законы и постановления</p> 
-      </button>
-    </h2>
-    <div id="flush-collapseNpara" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <a href="#" style="margin-bottom: 7px;">Законы и постановления</br></a>  
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-<script type="module" src="js/stils.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/css/intlTelInput.css"/>
-<script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-
 </html>

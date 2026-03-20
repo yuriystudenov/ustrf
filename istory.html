@@ -1,199 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/main.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style/bootstrap.min.css">
-<link rel="stylesheet" href="scss/vendor/_carousel.scss">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<style>
- body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-
-
-  ul{
-    background-color: #fff;
-  }
-
-
-@media (min-width: 200px) and (max-width: 576px) { 
-    .index-offers{
-      font-size: 60px;
-    }
-     .strol{
-      font-size: 45px;
-    } 
-
-    /* #sizing{
-      width: 350px;
-    } */
- }
-
-
-
-a{
-  color: #000;
-  background-color: #fff;
-}
-
-a:hover{
-  color: #C63434;
-  /* background-color: #fff; */
-}
-
-.button-head a:hover{
-  background-color: #C63434;
-}
-</style>
-
-  <title>ЮСТ.РФ</title>
-</head>
-<body >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   
-     <nav>
-
-      <a href="/">
-        <img src="../img/logo.png" alt="">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style/main.css">
+  
+  <title>ЮСТ.РФ - История компании</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      line-height: 1.8;
+    }
+    
+    .history-container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    
+    .history-card {
+      background: white;
+      border-radius: 30px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .history-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #C63434, #FF8484);
+    }
+    
+    .history-title {
+      color: #C63434;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .history-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: #C63434;
+    }
+    
+    .history-text {
+      color: #4a5568;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-marker {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #C63434;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .history-year {
+      color: #C63434;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+    
+    .history-event {
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid #C63434;
+    }
+    
+    @media (max-width: 768px) {
+      .history-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="img/logo.png" alt="ЮСТ.РФ">
       </a>
-      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
-      <label for="burger-toggle" style="z-index: 100000;">
+      
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger-label">
         <span></span>
       </label>
-      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 860px; margin-top: 180px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);" >
-        <li>
-          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
-        </li>
-        <li>
-          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
-        </li>
-        <li>
-          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
-        </li>
-        <li>
-          <a href="contacts.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
-        </li>
-        <li>
-          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
-        </li>
-  
-
-        <li>
-          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
-    
-        </li>
-        <li>
-          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
-    
-        </li>
-        
-
-         <li>
-          <a href="price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
-    
-        </li>
-
-         <li>
-          <a href="sales.html" class="header__link" style="font-family: 'Arial Black';">Акции</a>
-
-        </li>
-
-         <li>
-          <a href="literats.html" class="header__link" style="font-family: 'Arial Black';">Литература</a>
-
-        </li>
-
-       
+      
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Главная</a></li>
+        <li><a href="category.html" class="nav-link">Категории</a></li>
+        <li><a href="delivery.html" class="nav-link">Доставка</a></li>
+        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+        <li><a href="credit.html" class="nav-link">Кредитование</a></li>
+        <li><a href="garant.html" class="nav-link">Гарантии и сервис</a></li>
+        <li><a href="avtonomnaya-sistema-ust.xls" class="nav-link">Расчёт системы</a></li>
+        <li><a href="price.xlsx" class="nav-link">Прайс лист</a></li>
+        <li><a href="sales.html" class="nav-link">Акции</a></li>
+        <li><a href="literats.html" class="nav-link">Литература</a></li>
       </ul>
-    </nav> 
+    </nav>
+  </div>
 
+  <!-- Header line -->
+  <div class="header-line"></div>
 
-
-
-
+  <!-- History Content -->
+  <div class="history-container">
+    <div class="history-card">
+      <h1 class="history-title">История компании</h1>
+      
+      <p class="history-text">
+        Компания ЮСТ основана 26 июня 1991 года в городе Пензе.
+      </p>
+      
+      <div class="history-event">
+        <span class="history-year">1991</span>
+        <p>Первое подразделение компании ЮСТ — «Union of Satellite Television» (UST) осуществляло оптово-розничные поставки оборудования для приёма спутниковых телевизионных программ. Разработан первый ресивер компании.</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">1992</span>
+        <p>Разработана первая станция для коллективного приёма спутниковых программ. Создание компьютерного подразделения ЮСТ — «Universal System Technologies» (UST).</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">1995</span>
+        <p>Открытие производства по пошиву верхней одежды, головных уборов и аксессуаров из кожи.</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">1996</span>
+        <p>Начало розничной торговли продуктами питания. Открытие первого магазина аудио и видеотехники. Открытие подразделения отделочных материалов ЮСТ.</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">1997</span>
+        <p>Открытие первого магазина бытовой техники. Создание страховой компании. Открытие подразделения в Нижнем Новгороде.</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">2004</span>
+        <p>Создание подразделения ЮСТ по поставке климатической техники, систем кондиционирования, вентиляции, отопления — «Universal System of Thermotechnology» (UST).</p>
+      </div>
+      
+      <div class="history-event">
+        <span class="history-year">2009</span>
+        <p>Создание подразделения ЮСТ — «United Solar Technologies» (UST), занимающегося разработкой, производством, поставкой, монтажем и обслуживанием энергосистем на солнечных батареях.</p>
+      </div>
+      
+      <div class="mt-5 p-4 bg-light rounded">
+        <h3 class="h5 mb-3">Настоящее время</h3>
+        <p class="mb-0">
+          В настоящее время подразделение «United Solar Technologies» занимается поставкой, продажей, обслуживанием и установкой систем бесперебойного питания, энергосистем на солнечных батареях и других альтернативных источниках энергии, разработкой и производством систем ориентации солнечных батарей (трекеров).
+        </p>
+      </div>
     </div>
-    <div class="header-line" style="margin-bottom: 15px;">
+  </div>
 
-    </div>
-    
-<div class="container-fluid">
-
-<h1 style="color: #C63434; font-weight: 900;font-size: 60px;">История компании</h1>
-<p style="margin-top: 30px;opacity: 0.56;">Компания ЮСТ основана 26 июня 1991 года в городе Пензе.
-
-Первое подразделение компании ЮСТ — «Union of Satellite Television» (UST) с 1991г. осуществляло оптово-розничные поставки оборудования для приёма спутниковых  телевизионных программ, разработку и внедрение в производство спутниковых ресиверов и систем приёма, обработки и трансляции  телевизионных сигналов со спутников в многоквартирых  домах (коллективные станции приёма спутниковых сигналов).</br>
-
-1991 г.  —   разработан первый ресивер компании и пущен в производство.</br>
-
-1992 г.  —  разработана первая станция для коллективного приёма спутниковых программ, презентация которой состоялась на выставке КОНСУМ ЭКСПО в г.Москве в том же году.</br>
-
-1992 г.  —  создание компьютерного подразделения ЮСТ  — «Universal System Technologies» (UST), занимающегося оптово-розничной поставкой компьютерного оборудования и переферией, разработкой, поставкой, монтажем вычислительных сетей на базе  персональных компьютеров.</br>
-
-</br>Наша компания стоит у истоков компьютеризации федеральных и муниципальных структур, находящихся на территории г. Пензы и Пензенской области.</br>
-
-</br>Первые вычислительные сети Налоговых инспекций  города Пензы, Областного фонда занятости населения, Территориального фонда обязательного медицинского страхования Пензенской области и его филиалов, Соцстраха, УВД Пензенской области и его подразделений,  РОСГОССТРАХ г.Пензы со всеми филиалами по области, Администраций районов, Пензенской городской электрической сети, Пензенского Политехнического Института (ныне Пензенский Государственный Университет) а также многих больниц, крупных промышленных предприятий, банков поставлены и созданы именно нашей компанией. Поставки оборудования с 1992г. производились напрямую из США, что позволило реализовывать технику и в других регионах России.
-
-</br>Компания стала динамично развиваться по различным направлениям:
-
-</br>1995 г.  — открытие производства по пошиву верхней одежды, головных уборов и аксессуаров из кожи.
-
-</br>1996 г.  — начало розничной торговли продуктами питания.
-
-</br>1996 г.  — открытие первого магазина и начало розничной торговли аудио и видеотехникой.
-
-</br>1996 г.  — открытие подразделения отделочных материалов ЮСТ, на базе которого в 2003г был открыт супермаркет отделочных материалов.
-
-</br>1997 г.  — открытие первого магазина бытовой техники.
-
-</br>В дальнейшем была создана сеть магазинов и супермаркетов по торговле аудио-видео,  компьютерной и бытовой техникой ЮСТ  — «United Sale Technics» (UST).
-
-</br>1997 г.  — создание страховой компании, занимающейся страхованием в сфере обязательного медицинского страхования.
-
-</br>1997 г.  — создание сети по оптово-розничной торговле медикаментами и сопутствующими товарами.
-
-</br>1997 г.  — открытие первого самостоятельного подразделения по оптовой торговле компьютерным оборудованием, комплектующими, периферией в Нижнем Новгороде, которое в дальнейшем выросло до крупной компании  регионального уровня, владеющей сетью  филиалов.
-
-</br>2004 г.  — создание подразделения ЮСТ по поставке климатической техники, систем кондиционирования, вентиляции, отопления  — «Universal System of Thermotechnology» (UST).
-
-</br>2009 г. — создание подразделения ЮСТ  — «United Solar Technologies» (UST), занимающегося разработкой, производством, поставкой, монтажем и обслуживанием энергосистем на солнечных батареях, других систем, использующих энергию солнца и нетрадиционных источников. В этом же году нами спроектирована и выпущена первая установка на солнечных батареях, способная вырабатывать 6 кВт/час электроэнергии.
-
-
-</br>В настоящее время подразделение «United Solar Technologies» занимается поставкой, продажей, обслуживанием  и установкой систем бесперебойного питания, энергосистем на солнечных батареях и других альтернативных источниках энергии, разработкой и производством систем ориентации солнечных батарей (трекеров) наземного размещения и с размещением на других объектах, включая крыши зданий. Проектирование и монтаж энергосистем мощностью от 10 кВт, а также больших электростанций на солнечных батареях, с использованием трекеров собственного и импортного производства.
-
-</br>Мы стремимся, чтобы зарегистрированный нами собственный товарный знак «ЮСТ», под которым осуществляется деятельность компании, был гарантией надежности и качества.
-
-</br>Несмотря на значительный 25-ти летний опыт работы, наша компания молодая, так как её основу составляет молодежь. Постоянный поиск рождает новые проекты, для которых мы открыты всегда. Нам нужны люди, партнеры, идеи для создания и продвижения новых технологий в жизнь.
-
-
-
-</div>
-
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script>
-   $(document).ready(function() {
-  $(".container").click(function() {
-    $(".stick").toggleClass(function () {
-      return $(this).is('.open, .close') ? 'open close' : 'open';
-    });
-  });
-});
-
-</script>
 </html>

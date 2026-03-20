@@ -1,135 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/main.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<style>
-  body{
-    font-family: "Arial Black", sans-serif;
-  }
-    ul{
-    background-color: #fff;
-  }
-
-
-
-   a{
-  color: #000;
-  background-color: #fff;
-}
-
-a:hover{
-  color: #C63434;
-  background-color: #fff;
-}
-</style>
-
-  <title>ЮСТ.РФ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style/main.css">
+  
+  <title>ЮСТ.РФ - Кредитование</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+      min-height: 100vh;
+    }
+    
+    .credit-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+    }
+    
+    .credit-card {
+      background: white;
+      border-radius: 30px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .credit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #C63434, #FF8484);
+    }
+    
+    .credit-title {
+      color: #C63434;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .credit-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: #C63434;
+    }
+    
+    .credit-text {
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .bank-logo {
+      width: 100%;
+      max-width: 400px;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .bank-logo:hover {
+      transform: scale(1.02);
+    }
+    
+    .credit-link {
+      display: inline-block;
+      color: #C63434;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-bottom: 2px solid #C63434;
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .credit-link:hover {
+      color: #a02828;
+      border-bottom-color: #a02828;
+      transform: translateX(5px);
+    }
+    
+    .contact-info {
+      background: #f8f9fa;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-info p {
+      margin: 0.5rem 0;
+      color: #4a5568;
+    }
+    
+    .contact-info i {
+      color: #C63434;
+      margin-right: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .credit-card {
+        padding: 2rem;
+      }
+      
+      .credit-title::after {
+        width: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-     <nav>
-
-      <a href="/">
-        <img src="../img/logo.png" alt="">
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="img/logo.png" alt="ЮСТ.РФ">
       </a>
-      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
-      <label for="burger-toggle" style="z-index: 100000;">
+      
+      <input type="checkbox" id="burger-toggle" class="burger-toggle">
+      <label for="burger-toggle" class="burger-label">
         <span></span>
       </label>
-      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 860px; margin-top: 180px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);" >
-        <li>
-          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
-        </li>
-        <li>
-          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
-        </li>
-        <li>
-          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
-        </li>
-        <li>
-          <a href="contacts.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
-        </li>
-        <li>
-          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
-        </li>
-  
-
-        <li>
-          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
-    
-        </li>
-        <li>
-          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
-    
-        </li>
-        
-
-         <li>
-          <a href="price.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
-    
-        </li>
-
-           <li>
-          <a href="sales.html" class="header__link" style="font-family: 'Arial Black';">Акции</a>
-
-        </li>
-
-         <li>
-          <a href="literats.html" class="header__link" style="font-family: 'Arial Black';">Литература</a>
-
-        </li>
-
-        
-
-       
+      
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Главная</a></li>
+        <li><a href="category.html" class="nav-link">Категории</a></li>
+        <li><a href="delivery.html" class="nav-link">Доставка</a></li>
+        <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+        <li><a href="credit.html" class="nav-link active">Кредитование</a></li>
+        <li><a href="garant.html" class="nav-link">Гарантии и сервис</a></li>
+        <li><a href="avtonomnaya-sistema-ust.xls" class="nav-link">Расчёт системы</a></li>
+        <li><a href="price.xlsx" class="nav-link">Прайс лист</a></li>
+        <li><a href="sales.html" class="nav-link">Акции</a></li>
+        <li><a href="literats.html" class="nav-link">Литература</a></li>
       </ul>
     </nav>
+  </div>
 
+  <!-- Header line -->
+  <div class="header-line"></div>
 
-
-
+  <!-- Credit Content -->
+  <div class="container-fluid credit-container">
+    <div class="credit-card">
+      <h1 class="credit-title">Кредитование покупателей</h1>
+      
+      <p class="credit-text">
+        Кредитование покупок осуществляется через банк ХОУМ КРЕДИТ.
+      </p>
+      
+      <div class="contact-info">
+        <p><i>📍</i> Оформить кредит вы можете в нашем офисе по адресу: г. Пенза, ул. Московская, дом 99</p>
+        <p><i>🏦</i> Или в любом отделении банка, предварительно оформив заявку на товар в интернет-магазине</p>
+        <p><i>📞</i> По интересующим вопросам звоните: +7 (8412) 56-47-25</p>
+      </div>
+      
+      <img src="img/hoym.png" alt="Хоум Кредит Банк" class="bank-logo">
+      
+      <p class="credit-text" style="margin-bottom: 0.5rem;">
+        Для ознакомления с условиями кредитования пройдите по ссылке ниже:
+      </p>
+      
+      <a href="http://penza.homecredit.ru/about/" class="credit-link" target="_blank">
+        penza.homecredit.ru/about/ →
+      </a>
     </div>
-    <div class="header-line" style="margin-bottom: 15px;">
+  </div>
 
-    </div>
-    
-
-<div class="container-fluid">
-<h1 style="color: #C63434; font-weight: 900;font-size: 60px;">Кредитование покупателей</h1>
-<p style="margin-top: 30px;">Кредитование покупок осуществляется через банк  ХОУМ КРЕДИТ.</br>Оформить кредит вы можете в нашем офисе по адресу: г. Пенза, ул. Московская, дом 99, или в любом отделении банка, предварительно  оформив заявку на  товар в интернет-магазине.</br>По интересующим вопросам звоните: +7 8412 564725</p>
-
-
-<img src="../img/hoym.png" alt="hoym" style="width: 100%;">
-<p>Для ознакомления с условиями кредитования пройдите по ссылке ниже: 
-  
-  </p>
-  <a href="http://penza.homecredit.ru/about/" style="text-decoration: none; color: #000;">http://penza.homecredit.ru/about/</a>
-</div>
-
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script>
-   $(document).ready(function() {
-  $(".container").click(function() {
-    $(".stick").toggleClass(function () {
-      return $(this).is('.open, .close') ? 'open close' : 'open';
-    });
-  });
-});
-
-</script>
 </html>
