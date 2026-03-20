@@ -24,7 +24,6 @@ body {
   padding-right: 20px;
 }
 
-/* ===== TYPOGRAPHY ===== */
 .accent-text {
   color: #C63434;
 }
@@ -39,7 +38,6 @@ body {
   opacity: 0.71;
 }
 
-/* ===== LINKS ===== */
 a {
   color: #000;
   text-decoration: none;
@@ -50,7 +48,6 @@ a:hover {
   color: #C63434;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
 .header-line {
   height: 1px;
   width: 100%;
@@ -70,7 +67,6 @@ nav {
   max-width: 150px;
 }
 
-/* Burger menu */
 #burger-toggle {
   display: none;
   z-index: 999;
@@ -115,7 +111,6 @@ label[for="burger-toggle"] {
   width: 100%;
 }
 
-/* ===== HERO SECTION ===== */
 .hero-section {
   margin-bottom: 60px;
 }
@@ -130,7 +125,6 @@ label[for="burger-toggle"] {
   line-height: 1.1;
 }
 
-/* Button */
 .header-btn {
   display: inline-block;
 }
@@ -165,7 +159,6 @@ label[for="burger-toggle"] {
   margin-top: 10px;
 }
 
-/* ===== CARDS SECTION ===== */
 .cards-section {
   padding: 40px 0;
 }
@@ -287,7 +280,6 @@ label[for="burger-toggle"] {
   z-index: 1;
 }
 
-/* ===== CAROUSEL ===== */
 .carousel-item {
   height: 900px;
 }
@@ -313,7 +305,6 @@ label[for="burger-toggle"] {
   background-color: #C63434;
 }
 
-/* ===== FORMS ===== */
 .center {
   position: absolute;
   top: 50%;
@@ -406,7 +397,6 @@ input[type="Submit"]:hover {
   box-shadow: 0 10px 25px rgba(198, 52, 52, 0.3);
 }
 
-/* ===== ADVANTAGES ===== */
 .advantages__list {
   display: flex;
   align-items: flex-start;
@@ -429,7 +419,6 @@ input[type="Submit"]:hover {
   align-items: center;
 }
 
-/* ===== RECTANGLES ===== */
 .rect1, .rect2, .rect3, .rect4, .rect5, .rect6 {
   width: 106px;
   height: 38px;
@@ -455,7 +444,6 @@ input[type="Submit"]:hover {
   transform: rotate(16deg);
 }
 
-/* ===== OFFER SECTION ===== */
 .offer-h1 {
   position: absolute;
   top: 50%;
@@ -479,7 +467,6 @@ input[type="Submit"]:hover {
   transform: translate(-50%, -50%);
 }
 
-/* ===== TOOLTIP ===== */
 .tooltip {
   position: relative;
 }
@@ -499,9 +486,7 @@ input[type="Submit"]:hover {
   visibility: visible;
 }
 
-/* ===== MEDIA QUERIES ===== */
 
-/* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .index-offers {
     font-size: 60px;
@@ -521,7 +506,6 @@ input[type="Submit"]:hover {
   }
 }
 
-/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
   .header-text p {
     margin-top: 40px;
@@ -574,7 +558,6 @@ input[type="Submit"]:hover {
     width: 400px;
   }
   
-  /* Burger menu for mobile */
   label[for="burger-toggle"] {
     display: block;
     position: relative;
@@ -646,7 +629,6 @@ input[type="Submit"]:hover {
   }
 }
 
-/* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
   .index-offers {
     font-size: 75px;
@@ -675,7 +657,6 @@ input[type="Submit"]:hover {
   }
 }
 
-/* Large devices (desktops, less than 1200px) */
 @media (max-width: 1199.98px) {
   .header-text p {
     margin-top: 10px;
@@ -717,7 +698,6 @@ input[type="Submit"]:hover {
   }
 }
 
-/* X-Large devices (large desktops, less than 1400px) */
 @media (max-width: 1399.98px) {
   .header-text p {
     margin-top: 10px;
@@ -750,7 +730,6 @@ input[type="Submit"]:hover {
   }
 }
 
-/* XX-Large devices (larger desktops) */
 @media (min-width: 1400px) {
   .header-text p {
     margin-top: 10px;

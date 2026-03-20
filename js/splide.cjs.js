@@ -2838,7 +2838,7 @@ function Live(Splide2, Components2, options) {
   };
 }
 
-var ComponentConstructors = /*#__PURE__*/Object.freeze({
+var ComponentConstructors = Object.freeze({
   __proto__: null,
   Media: Media,
   Direction: Direction,
@@ -2990,7 +2990,7 @@ function Slide(Splide2, Components2, options) {
   };
 }
 
-var _Splide = /*#__PURE__*/function () {
+var _Splide = function () {
   function _Splide(target, options) {
     this.event = EventInterface();
     this.Components = {};
@@ -3163,7 +3163,7 @@ var RENDERER_DEFAULT_CONFIG = {
   slideTag: "li"
 };
 
-var Style = /*#__PURE__*/function () {
+var Style = function () {
   function Style(id, options) {
     this.styles = {};
     this.id = id;
@@ -3220,7 +3220,7 @@ var Style = /*#__PURE__*/function () {
   return Style;
 }();
 
-var SplideRenderer = /*#__PURE__*/function () {
+var SplideRenderer = function () {
   function SplideRenderer(contents, options, config, defaults) {
     this.slides = [];
     this.options = {};

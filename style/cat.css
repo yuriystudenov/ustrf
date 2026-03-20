@@ -1,9 +1,6 @@
-    /* адаптив под мобильные устройства */
-    /* Устройства X-Small (портретные телефоны, менее 576 пикселей)*/
 
 
 
-/* Устройства Small (телефоны с горизонтальной ориентацией, менее 768 пикселей)*/
 
 @media screen and (max-width: 767.98px) {
   .header-text p  {
@@ -19,9 +16,6 @@
     font-size: 65px;
   }
 
-  /* .card{
-    margin-bottom: 230px;
-  } */
 
   .trec {
     font-size: 69px;
@@ -35,17 +29,11 @@
     font-size: 35px;
   }
 
-  /* .card{
-    margin-bottom: 40px;
-  } */
 
   .offer-h1 h1{
     font-size: 105px;
   }
 
-/* .categ-offer > .strol {
-  font-size: 52px;
-} */
 
 .categ-offer > .strols1 {
   font-size: 58px;
@@ -72,9 +60,6 @@
     font-size: 65px;
   }
 
-  /* .card{
-    margin-bottom: 230px;
-  } */
 
   .trec {
     font-size: 69px;
@@ -88,17 +73,11 @@
     font-size: 35px;
   }
 
-  /* .card{
-    margin-bottom: 40px;
-  } */
 
   .offer-h1 h1{
     font-size: 105px;
   }
 
-/* .categ-offer > .strol {
-  font-size: 52px;
-} */
 
 .categ-offer > .strols1 {
   font-size: 58px;
@@ -108,7 +87,6 @@
 
 }
 
-/* Устройства Medium (планшеты, менее 992 пикселей)*/
 @media (max-width: 991.98px) { 
   .index-offers{
     font-size: 75px;
@@ -146,7 +124,6 @@
 
  }
 
-/* Устройства Large (настольные компьютеры, менее 1200 пикселей)*/
 @media (max-width: 1199.98px) { 
   .header-text p {
     margin-top: 10px;
@@ -216,7 +193,6 @@
 
  }
 
-/* Устройства X-Large (большие настольные компьютеры, менее 1400 пикселей)*/
 @media (max-width: 1399.98px) { 
 .header-text p {
     margin-top: 10px;
@@ -315,29 +291,6 @@
 
 
 
- /* @media (min-width: 1400px) { 
-  .header-text p {
-    margin-top: 10px;
-    margin-left: 25px;
-  }
-
-  .index-offers{
-    font-size: 106px;
-  }
-
-  .trec {
-    font-size: 85px;
-  }
-
-
-  .offer-h1 h1{
-    font-size: 168px;
-    line-height: 150px;
-  }
-
-  /* .card{
-    margin-bottom: 40px;
-  } */
 
 
 
@@ -349,8 +302,6 @@
 
 
 
-/* Устройства XX-Large (большие настольные компьютеры) */
-/*Нет медиа-запроса, так как контрольная точка xxl не имеет верхней границы ширины*/
 
 
 
@@ -414,7 +365,6 @@
   } 
 
 
-/*slider */
 
 .carousel-item{
   height: 900px;
@@ -563,7 +513,6 @@ body, html {
   }
 
 
-  /* HEADER */
   .header-line{
     height: 1px;
     width: 100%;
@@ -578,9 +527,7 @@ body, html {
     transform:translate(-50%,-50%);
   }
   .offer-h1 h1 {
-    /* font-size: 168px; */
     text-align: center;
-    /* line-height: 150px; */
   }
 
   .down-text p{
@@ -712,9 +659,7 @@ visibility: visible;
 /*****************Тут начинается магия***************/
   display:flex;
   align-items:center;
-  /*Важно! При таком способе позиционирования у .advantages__item должен быть только один непосредственный потомок, иначе flex выстроит их(потомков) в линию */
 }
-/*Тут магия заканчивается и начинается позиционирование "лесекнкой"*/
 .advantages__item:first-child,
 .advantages__item:last-child{
   margin-top:60px;
@@ -723,7 +668,6 @@ visibility: visible;
 .advantages__item:nth-child(5){
   margin-top:30px;
 }
-/*Бонусный хвост*/
 .advantages__item:before{
   display:inline-block;
   border-right:20px solid yellow;
@@ -751,7 +695,6 @@ visibility: visible;
 }
 
 
-/* forms */
 
 
 .center{
@@ -873,7 +816,6 @@ input[type="Submit"]:hover{
 }
 
 
-/* burger */
 
 nav {
   max-width: 90%;
@@ -883,10 +825,6 @@ nav {
   justify-content: space-between;
 }
 
-/* nav > a img {
-  width: 100px;
-  border-radius: 50%;
-} */
 
 ul {
   display: flex;

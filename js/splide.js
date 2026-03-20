@@ -2831,7 +2831,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
   }
 
-  var ComponentConstructors = /*#__PURE__*/Object.freeze({
+  var ComponentConstructors = Object.freeze({
     __proto__: null,
     Media: Media,
     Direction: Direction,
@@ -2983,7 +2983,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     };
   }
 
-  var _Splide = /*#__PURE__*/function () {
+  var _Splide = function () {
     function _Splide(target, options) {
       this.event = EventInterface();
       this.Components = {};
