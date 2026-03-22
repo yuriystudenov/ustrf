@@ -1,1700 +1,728 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/main.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arial+Black:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<style>
-  body{
-    font-family: "Arial Black", sans-serif;
-  }
-
-  .video-container {
-  position: relative; /* Позиционирование контейнера*/
-  width: 100%;
-  height: 100vh; /* Высота экрана*/
-}
-
-.video-bg {
-  position: absolute; /* Видео занимает все пространство контейнера*/
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Заполняет весь контейнер, обрезая, если нужно*/
-  z-index: -1; /* Видео под контентом*/
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex; /* Для выравнивания контента*/
-  flex-direction: column; /* Столбцы*/
-  justify-content: left; /* Вертикальное выравнивание*/
-  align-items: left; /* Горизонтальное выравнивание*/
-  text-align: left; /* Выравнивание текста*/
-  color: white; /* Цвет текста*/
-  /* background-color: rgba(0, 0, 0, 0.7); Фон с прозрачностью */
-  background: #000;
-  z-index: 1; /* Над видео*/
-  opacity: 0.83;
-}
-
-
-</style>
-
-  <title>ЮСТ.РФ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../style/main.css">
+  
+  <title>ЮСТ.РФ - Инверторы</title>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    }
+    
+    /* Category Header */
+    .category-header {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #C63434 0%, #FF8484 100%);
+      color: white;
+      margin-bottom: 3rem;
+      border-radius: 0 0 50px 50px;
+    }
+    
+    .category-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    
+    .category-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Products Grid */
+    .products-section {
+      padding: 2rem 0 5rem;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-card {
+      background: linear-gradient(145deg, #b5b5b5, #9a9a9a);
+      border-radius: 30px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(198, 52, 52, 0.3);
+    }
+    
+    .product-image {
+      max-width: 280px;
+      max-height: 280px;
+      object-fit: contain;
+      display: block;
+      margin: 40px auto 0;
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+      border-radius: 0 0 30px 30px;
+    }
+    
+    .product-title {
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      text-align: center;
+      margin: 0;
+    }
+    
+    .product-arrow {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background-color: #C63434;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+      cursor: pointer;
+    }
+    
+    .product-arrow:hover {
+      transform: scale(1.1);
+      background-color: #a02828;
+    }
+    
+    .product-arrow img {
+      width: 30px;
+      height: 30px;
+      filter: brightness(0) invert(1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-card {
+        height: 450px;
+      }
+      
+      .product-image {
+        max-width: 220px;
+        max-height: 220px;
+        margin-top: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
-      <nav>
-
-      <a href="/">
-        <img src="../img/logo.png" alt="">
+  
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <nav>
+      <a href="/" class="logo">
+        <img src="../img/logo.png" alt="ЮСТ.РФ">
       </a>
-      <input id="burger-toggle" type="checkbox" style="z-index: 999;">
-      <label for="burger-toggle" style="z-index: 100000;">
+      
+      <input id="burger-toggle" type="checkbox">
+      <label for="burger-toggle">
         <span></span>
       </label>
-      <ul class="header__list" style="z-index: 999; list-style-type: none;  height: 750px; margin-top: 150px;  b-webkit-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
--moz-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);
-box-shadow: 4px 4px 51px -37px rgba(34, 60, 80, 0.2);" >
-        <li>
-          <a href="/" class="header__link" style="font-family: 'Arial Black';">Главная</a>
-        </li>
-        <li>
-          <a href="category.html" class="header__link" style="font-family: 'Arial Black';">Категории</a>
-        </li>
-        <li>
-          <a href="delivery.html" class="header__link" style="font-family: 'Arial Black';">Доставка</a>
-        </li>
-        <li>
-          <a href="contacts.html" class="header__link" style="font-family: 'Arial Black';">Контакты</a>
-        </li>
-        <li>
-          <a href="credit.html" class="header__link" style="font-family: 'Arial Black';">Кредитование</a>
-        </li>
-  
-
-        <li>
-          <a href="garant.html" class="header__link" style="font-family: 'Arial Black';">Гарантии и сервис</a>
-    
-        </li>
-        <li>
-          <a href="avtonomnaya-sistema-ust.xls" class="header__link" style="font-family: 'Arial Black';">Расчёт системы</a>
-    
-        </li>
-        
-
-         <li>
-          <a href="price ЮСТ.xlsx" class="header__link" style="font-family: 'Arial Black';">Прайс лист</a>
-    
-        </li>
-
-        
-
-       
+      
+      <ul class="header__list">
+        <li><a href="/" class="header__link">Главная</a></li>
+        <li><a href="../category.html" class="header__link">Категории</a></li>
+        <li><a href="../delivery.html" class="header__link">Доставка</a></li>
+        <li><a href="../contacts.html" class="header__link">Контакты</a></li>
+        <li><a href="../garant.html" class="header__link">Гарантии и сервис</a></li>
+        <li><a href="../avtonomnaya-sistema-ust.xls" class="header__link">Расчёт системы</a></li>
+        <li><a href="../price.xlsx" class="header__link">Прайс лист</a></li>
       </ul>
     </nav>
-
-
-
-  <div class="header-line" style="margin-bottom: 100px;">
-
   </div>
   
-
-
+  <!-- Header line -->
+  <div class="header-line"></div>
   
+  <!-- Category Header -->
+  <div class="category-header">
+    <div class="container-fluid">
+      <h1>Инверторы</h1>
+      <p>Преобразователи напряжения для солнечных электростанций</p>
     </div>
+  </div>
   
-
-<div class="container-fluid"> 
-<div class="row">
-
-
-
-     <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
+  <!-- Products Grid -->
+  <div class="container-fluid products-section">
+    <div class="products-grid">
       
-        <img src="../img/hybrid_inventor1-Photoroom.png" class="card-img img-fluid" alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 350px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Трехфазный гибридный инвертор | 3-12 кВт | 2 MPPT |
-          <br>SUN-3/4/5/6/8/10/12K-SG05LP3-EU-SM2
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors1.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor1-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор | 3-12 кВт | 2 MPPT |<br>SUN-3/4/5/6/8/10/12K-SG05LP3-EU-SM2</p>
         </div>
+        <a href="inventors1.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor2-Photoroom.png" class="card-img img-fluid" alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 330px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Трехфазный гибридный инвертор | 3-12 кВт | 2 MPPT | с 3 струнами
-          <br>SUN-14/15/16/18/20K-SG05LP3-EU-SM2
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors2.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor2-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор | 3-12 кВт | 2 MPPT | с 3 струнами<br>SUN-14/15/16/18/20K-SG05LP3-EU-SM2</p>
         </div>
+        <a href="inventors2.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor2-Photoroom.png" class="card-img img-fluid" alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 350px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT | <br>
-            SUN-14/15/16/18/20K-SG05LP3-EU-SM2
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors3.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor2-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT |<br>SUN-14/15/16/18/20K-SG05LP3-EU-SM2</p>
         </div>
+        <a href="inventors3.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor3-Photoroom.png" class="card-img img-fluid" alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 350px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT | <br>
-            SUN-5/6/8/10/12K-SG04LP3-EU
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors4.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor3-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT |<br>SUN-5/6/8/10/12K-SG04LP3-EU</p>
         </div>
+        <a href="inventors4.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-             <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor3-Photoroom.png" class="card-img img-fluid"  alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 350px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT | <br>
-            SUN-5/6/8/10/12K-SG04LP3-EU-AM2-P
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors5.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 5 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor3-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор | 14-20 кВт | 2 MPPT |<br>SUN-5/6/8/10/12K-SG04LP3-EU-AM2-P</p>
         </div>
+        <a href="inventors5.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-         <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor4-Photoroom.png" class="card-img img-fluid" alt="..." style="   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 300px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Три фазы 33-50 кВт 4 MPPT Низкое напряжение 127/220 В переменного тока <br>
-            SUN-33/35/40/45/50K-G04P3-EU-AM4-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors6.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 6 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor4-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 33-50 кВт 4 MPPT Низкое напряжение 127/220 В<br>SUN-33/35/40/45/50K-G04P3-EU-AM4-LV</p>
         </div>
+        <a href="inventors6.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor5-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Три фазы 70-110 кВт 6 MPPT <br>
-         САН-70/75/80/90/100/110К-Г03
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors7.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 7 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor5-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 70-110 кВт 6 MPPT<br>САН-70/75/80/90/100/110К-Г03</p>
         </div>
+        <a href="inventors7.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-       <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor6-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Три фазы 60-75 кВт 8 MPPT Низкое напряжение <br>
-         SUN-60/70/75K-G01P3-EU-AM8-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors8.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 8 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor6-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 60-75 кВт 8 MPPT Низкое напряжение<br>SUN-60/70/75K-G01P3-EU-AM8-LV</p>
         </div>
+        <a href="inventors8.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-    
-       <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor7-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">Три фазы 120-136 кВт 8 MPPT <br>
-         САН-120/125/130/135/136-G01P3-EU-AM8
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors9.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 9 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor7-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 120-136 кВт 8 MPPT<br>САН-120/125/130/135/136-G01P3-EU-AM8</p>
         </div>
+        <a href="inventors9.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-       <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor8-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-Инвертор Cтринг 4-15 кВт Трехфазный 2 MPPT<br>
-        SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-AM2-P1
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors10.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 10 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor8-Photoroom.png" alt="Стринг инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Инвертор Cтринг 4-15 кВт Трехфазный 2 MPPT<br>SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-AM2-P1</p>
         </div>
+        <a href="inventors10.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-          <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor8-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Инвертор Стринг 3-15 кВт Трехфазный 2 MPPT<br>
-       SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors11.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 11 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor8-Photoroom.png" alt="Стринг инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Инвертор Cтринг 3-15 кВт Трехфазный 2 MPPT<br>SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-AM2</p>
         </div>
+        <a href="inventors11.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-              <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor9-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Одна фаза 3,6-6,2 кВт 2 MPPT<br>
-      SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors12.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 12 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor9-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 3,6-6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2</p>
         </div>
+        <a href="inventors12.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-             <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor10-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Одна фаза 3,6-6,2 кВт 2 MPPT<br>
-SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors13.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 13 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor10-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 3,6-6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2</p>
         </div>
+        <a href="inventors13.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-          <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor10-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Одна фаза 3,6-6,2 кВт 2 MPPT<br>
-SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors14.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 14 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor10-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 3,6-6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04</p>
         </div>
+        <a href="inventors14.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor11-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Одна фаза 3,6-6,2 кВт 2 MPPT<br>
-SUN-7/7.5/8K-G02P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors15.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 15 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor11-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 7-8 кВт 2 MPPT<br>SUN-7/7.5/8K-G02P1-EU-AM2</p>
         </div>
+        <a href="inventors15.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-    
-              <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor12-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-Одна фаза 9-10,5 кВт 2 MPPT<br>
-SUN-9/10/10.5K-G02P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors16.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 16 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor12-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 9-10,5 кВт 2 MPPT<br>SUN-9/10/10.5K-G02P1-EU-AM2</p>
         </div>
+        <a href="inventors16.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor13-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-Одна фаза 1-4 кВт 1 MPPT<br>
-SUN-1/1,5/2/2,2/2,5/2,7/3/3,3/3,6/4K-G04P1-EU-AM1
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors17.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 17 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor13-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Одна фаза 1-4 кВт 1 MPPT<br>SUN-1/1,5/2/2,2/2,5/2,7/3/3,3/3,6/4K-G04P1-EU-AM1</p>
         </div>
+        <a href="inventors17.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor14-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-Три фазы 3-15 кВт 2 MPPT<br>
-SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-BM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors18.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 18 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor14-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 3-15 кВт 2 MPPT<br>SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-BM2</p>
         </div>
+        <a href="inventors18.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-           <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor14-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-Три фазы 3-15 кВт 2 MPPT<br>
-SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-BM2-P1
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors19.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 19 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor14-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 3-15 кВт 2 MPPT<br>SUN-3/4/5/6/7/8/9/10/12/15K-G06P3-EU-BM2-P1</p>
         </div>
+        <a href="inventors19.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-               <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor15-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-Три фазы 18-20 кВт 2 MPPT<br>
-SUN-18/20K-G06P3-EU-BM2-P1
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors20.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 20 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor15-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 18-20 кВт 2 MPPT<br>SUN-18/20K-G06P3-EU-BM2-P1</p>
         </div>
+        <a href="inventors20.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor16-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-Три фазы 18-25 кВт 2 MPPT<br>
-SUN-18/20/22/23/25K-G05
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors21.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 21 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor16-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 18-25 кВт 2 MPPT<br>SUN-18/20/22/23/25K-G05</p>
         </div>
+        <a href="inventors21.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor17-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-Три фазы 30-36 кВт 2 MPPT<br>
-SUN-30/33/35/36K-G04
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors22.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 22 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor17-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 30-36 кВт 2 MPPT<br>SUN-30/33/35/36K-G04</p>
         </div>
+        <a href="inventors22.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-          <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor19-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Три фазы 60-80 кВт 4 MPPT<br>
-SUN-60/70/75/80K-G04P3-EU-AM4
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors24.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 23 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor19-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 60-80 кВт 4 MPPT<br>SUN-60/70/75/80K-G04P3-EU-AM4</p>
         </div>
+        <a href="inventors24.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-              <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor20-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Три фазы 6-8 кВт 2 MPPT 127/220 В<br>
-SUN-6/8K-G06-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors25.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 24 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor20-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 6-8 кВт 2 MPPT 127/220 В<br>SUN-6/8K-G06-LV</p>
         </div>
+        <a href="inventors25.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-                  <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor21-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Три фазы 2 MPPT 127/220 В<br>
-SUN-10/12/15K-G05-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors26.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 25 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor21-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 2 MPPT 127/220 В<br>SUN-10/12/15K-G05-LV</p>
         </div>
+        <a href="inventors26.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-    
-                  <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor22-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Три фазы 2 MPPT 127/220 В<br>
-SUN-18/20/21K-G04-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors27.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 26 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor22-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 2 MPPT 127/220 В<br>SUN-18/20/21K-G04-LV</p>
         </div>
+        <a href="inventors27.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor23-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Три фазы 23-30 кВт 4 MPPT 127/220 В<br>
-SUN-23/25/30K-G04-LV
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors28.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 27 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor23-Photoroom.png" alt="Трехфазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Три фазы 23-30 кВт 4 MPPT 127/220 В<br>SUN-23/25/30K-G04-LV</p>
         </div>
+        <a href="inventors28.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor24-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Однофазный гибридный инвертор 3–6 кВт 2 MPPT <br>
-SUN-3/3,6/5/6K-SG04LP1-EU-SM1/2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors29.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 28 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor24-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 3–6 кВт 2 MPPT<br>SUN-3/3,6/5/6K-SG04LP1-EU-SM1/2</p>
         </div>
+        <a href="inventors29.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-                <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor25-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-Однофазный гибридный инвертор 7–10 кВт <br>
-SUN-7/7.6/8/10K-SG05LP1-EU-SM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors30.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 29 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor25-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 7–10 кВт<br>SUN-7/7.6/8/10K-SG05LP1-EU-SM2</p>
         </div>
+        <a href="inventors30.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor26-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-Однофазный гибридный инвертор 3–6 кВт 2 MPPT <br>
-SUN-3/3.6/5/6K-SG04LP1-EU
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors31.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 30 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor26-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 3–6 кВт 2 MPPT<br>SUN-3/3.6/5/6K-SG04LP1-EU</p>
         </div>
+        <a href="inventors31.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor27-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT <br>
-SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU-AM2-P
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors32.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 31 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor27-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT<br>SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU-AM2-P</p>
         </div>
+        <a href="inventors32.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor28-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT <br>
-SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors33.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 32 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor28-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT<br>SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU</p>
         </div>
+        <a href="inventors33.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor29-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 5–8 кВт 2 MPPT <br>
-SUN-5/6/7.6/8K-SG01LP1-US
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors34.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 33 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor29-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 5–8 кВт 2 MPPT<br>SUN-5/6/7.6/8K-SG01LP1-US</p>
         </div>
+        <a href="inventors34.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-           <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor30-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 7,6–8 кВт 2 MPPT <br>
-SUN-7.6/8K-SG01LP1-EU
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors35.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 34 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor30-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 7,6–8 кВт 2 MPPT<br>SUN-7.6/8K-SG01LP1-EU</p>
         </div>
+        <a href="inventors35.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-               <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor31-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 5–12 кВт 2 MPPT <br>
-SUN-5/6/7.6/8/10/12K-SG02LP2-US-AM2/AM3
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors36.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 35 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor31-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 5–12 кВт 2 MPPT<br>SUN-5/6/7.6/8/10/12K-SG02LP2-US-AM2/AM3</p>
         </div>
+        <a href="inventors36.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-             <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor32-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 7,6–12 кВт 2 MPPT <br>
-SUN-7.6/8/10/12K-SG02LP1-EU-AM2/AM3
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors37.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 36 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor32-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 7,6–12 кВт 2 MPPT<br>SUN-7.6/8/10/12K-SG02LP1-EU-AM2/AM3</p>
         </div>
+        <a href="inventors37.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-      <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor33-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 12–16 кВт 3 MPPT <br>
-SUN-12/14/16K-SG01LP1-EU
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors38.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 37 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor33-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 12–16 кВт 3 MPPT<br>SUN-12/14/16K-SG01LP1-EU</p>
         </div>
+        <a href="inventors38.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor34-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-Гибридный инвертор, однофазный 5-6 кВт 2 MPPT <br>
-SUN-5/6K-SG05LP1-EU-SM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors39.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 38 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor34-Photoroom.png" alt="Гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Гибридный инвертор, однофазный 5-6 кВт 2 MPPT<br>SUN-5/6K-SG05LP1-EU-SM2</p>
         </div>
+        <a href="inventors39.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor35-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT <br>
-SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU-SM2-P
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors40.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 39 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor35-Photoroom.png" alt="Однофазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный гибридный инвертор 3,6–10 кВт 2 MPPT<br>SUN-3.6/5/6/7/7.6/8/10K-SG05LP1-EU-SM2-P</p>
         </div>
+        <a href="inventors40.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-            <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor36-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-Трехфазный гибридный инвертор 60-80 кВт 6 MPPT <br>
-SUN-60/70/75/80K-SG02HP3-EU-EM6
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors41.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 40 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor36-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор 60-80 кВт 6 MPPT<br>SUN-60/70/75/80K-SG02HP3-EU-EM6</p>
         </div>
+        <a href="inventors41.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-                <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/42-Photoroom.png" class="card-img img-fluid" alt="..." style="width: 320px; margin-top: 20px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-Трехфазный гибридный инвертор 8–15 кВт 2 MPPT <br>
-SUN-8/10/12/15K-SG01HP2-US-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors42.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 41 -->
+      <div class="product-card">
+        <img src="../img/42-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор 8–15 кВт 2 MPPT<br>SUN-8/10/12/15K-SG01HP2-US-AM2</p>
         </div>
+        <a href="inventors42.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-             <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor39-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Трехфазный гибридный инвертор 5–25 кВт 2 MPPT<br>
-SUN-5/6/8/10/12/15/20/25K-SG01HP3-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors43.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 42 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor39-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор 5–25 кВт 2 MPPT<br>SUN-5/6/8/10/12/15/20/25K-SG01HP3-EU-AM2</p>
         </div>
+        <a href="inventors43.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-                 <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor40-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Трехфазный гибридный инвертор 29,9–50 кВт MPPT 3/4<br>
-SUN-29.9/30/35/40/50K-SG01HP3-EU-BM3/4
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors44.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 43 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor40-Photoroom.png" alt="Трехфазный гибридный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Трехфазный гибридный инвертор 29,9–50 кВт MPPT 3/4<br>SUN-29.9/30/35/40/50K-SG01HP3-EU-BM3/4</p>
         </div>
+        <a href="inventors44.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-                     <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor41-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Однофазный 1–4 кВт 1 MPPT<br>
-SUN-1/1,5/2/2,2/2,5/2,7/3/3,3/3,6/4K-G04P1-EU-AM1
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors45.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 44 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor41-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный 1–4 кВт 1 MPPT<br>SUN-1/1,5/2/2,2/2,5/2,7/3/3,3/3,6/4K-G04P1-EU-AM1</p>
         </div>
+        <a href="inventors45.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-                         <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor42-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Однофазный 3,6–6,2 кВт 2 MPPT<br>
-SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors46.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 45 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor42-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный 3,6–6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G05P1-EU-AM2</p>
         </div>
+        <a href="inventors46.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                             <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor43-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Однофазный 3,6–6,2 кВт 2 MPPT<br>
-SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors47.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 46 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor43-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный 3,6–6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04</p>
         </div>
+        <a href="inventors47.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-                                 <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor45-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Однофазный 3,6–6,2 кВт 2 MPPT<br>
-SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors48.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 47 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor45-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный 3,6–6,2 кВт 2 MPPT<br>SUN-3.6/4/4.2/4.6/5/5.2/6/6.2K-G04</p>
         </div>
+        <a href="inventors48.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-                                     <div class="col-md-4" style="margin-top: 10px;">
-
-      <div class="card text-bg-dark" style=" background: #C63434;
-  background: #b5b5b5; border-radius: 30px;  height: 465px;">
-        
       
-        <img src="../img/hybrid_inventor46-Photoroom.png" class="card-img img-fluid" alt="..." style=" margin-top: 40px;   display: flex; margin: 0 auto; ">
-        <div class="card-img-overlay">
-        
-          <p style="text-align: center; margin: 0 auto;margin-top: 340px; padding-top:15px; font-family: 'Arial Black';font-size: 19px;font-weight: 400;opacity: 0.6;color: #fff;">
-
-
-
-
-
-
-
-
-
-
-
-Однофазный 9–10,5 кВт 2 MPPT<br>
-SUN-9/10/10.5K-G02P1-EU-AM2
-            
-
-     </p><div class="elp" style="background-color: #C63434; border-radius: 100%;width: 56px; height: 56px; position: absolute; z-index: 999; bottom: 76%; left:82%;">
-      <a href="inventors/inventors49.html"><img src="../img/arrow_left.png" alt="up-left" style="padding: 13px;"></a>
-    </div>
+      <!-- Product 48 -->
+      <div class="product-card">
+        <img src="../img/hybrid_inventor46-Photoroom.png" alt="Однофазный инвертор" class="product-image">
+        <div class="product-info">
+          <p class="product-title">Однофазный 9–10,5 кВт 2 MPPT<br>SUN-9/10/10.5K-G02P1-EU-AM2</p>
         </div>
+        <a href="inventors49.html" class="product-arrow">
+          <img src="../img/arrow_left.png" alt="Подробнее">
+        </a>
       </div>
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
-
-
-
-   </div>
-
-
-
-
-
-
+      
+    </div>
+  </div>
   
-
-
- 
-
- 
- 
-</div>  
-
-
-
-
-
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script>
-   $(document).ready(function() {
-  $(".container").click(function() {
-    $(".stick").toggleClass(function () {
-      return $(this).is('.open, .close') ? 'open close' : 'open';
-    });
-  });
-});
-
-</script>
 </html>
